@@ -4,7 +4,7 @@
     QRScan.ScanMemberShipCard = function () {
        cordova.plugins.barcodeScanner.scan(
 		function (result) {
-		  //  $.mobile.navigate('#dvScanMemberShip');
+		   // $.mobile.navigate('#dvScanMemberShip');
 
 		    var code = 'sad'
 		    var ajaxcallobj = {
@@ -20,6 +20,8 @@
 		            
 		        }
 		    });
+
+		
 		    var ajaxcallobj1 = {
 		        url: 'getmembershipdsicount',
 		        data: { store_id: 157 }
@@ -39,6 +41,20 @@
 	);
     }
 
+    $(document).ready(function () {
+        var ajaxcallobj1 = {
+            url: 'getmembershipdsicount',
+            data: { store_id: 157 }
+        }
+        WMT.jqXHR(ajaxcallobj1, function (response) {
+            if (response != undefined && response != null) {
+
+                $('#dis_rte').html(response[0].Membership_discount);
+
+            }
+        });
+    });
+
     /* Load Local Picture function */
     QRScan.LoadPicture = function () {
         capturePhotoLibrary2();
@@ -49,7 +65,7 @@
         cordova.plugins.barcodeScanner.scan(
                 function (result) {
                    
-         //   $.mobile.navigate('#dvScanMemberShip');
+          //  $.mobile.navigate('#dvScanMemberShip');
 
                 },
                 function (error) {
@@ -72,22 +88,23 @@ $('#total_cost').blur(function () {
        
         var discount = $('#dis_rte').html();
         var netcost = cost - (cost * (discount / 100));
-        $('#net_cost').html('&nbsp  ' + netcost);
+        $('#net_cost').html('&nbsp  ' + Math.round(netcost));
     }
     else {
-        $('#net_cost').html('&nbsp  ' + cost);
+        $('#net_cost').html('&nbsp  ' + Math.round(cost));
     }
 
 
 });
+
 $('#chkMbr_dis').change(function () {
     var cost = $('#total_cost').val();
     if ($('#chkMbr_dis').prop('checked')) {
         var discount = $('#dis_rte').html();
         var netcost = cost - (cost * (discount / 100));
-        $('#net_cost').html('&nbsp  ' + netcost);
+        $('#net_cost').html('&nbsp  ' + Math.round(netcost));
     }
     else {
-        $('#net_cost').html('&nbsp  ' + cost);
+        $('#net_cost').html('&nbsp  ' + Math.round(cost));
     }
 });
