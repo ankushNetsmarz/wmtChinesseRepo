@@ -908,15 +908,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
 /*********************  QBR Scan ********************/
 .btn_cok
 {
-    margin-left: 75%; 
+    margin-left: 70%; 
     text-align: center; 
-    width: 15%; 
+    width: 22.4%; 
     background-color: #bc1616; 
     border-radius: 4px; 
     margin-bottom: 15px; 
     margin-top: 20px;
     color:#fff;
     text-shadow: 0 0 0 #f3f3f3;
+    padding:10px 4px;
+    font-size:15px;
 }
 .cus_clr
 {
@@ -977,6 +979,7 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .mbrdis_lft
 {
+
     background-color: #FF7033; text-align: left; width: 90%; float: left;font-size:14px;text-shadow: 0 0 0 #f3f3f3;
 }
 .mgn_lft
@@ -993,15 +996,15 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .btn_cscn
 {
-    width: 30%; height: 20%; color: #fff; background-color: #bc1616; float: left; margin-left: 1%; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;
+    width: 30%; height: 20%; color: #fff; background-color: #bc1616; float: left; margin-left: 1%; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;height:60px;
 }
 .btn_nscn
 {
-    width: 30%; height: 20%; color: #fff; background-color: #bc1616; margin-left: 3%; float: left; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;
+    width: 30%; height: 20%; color: #fff; background-color: #bc1616; margin-left: 3%; float: left; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;height:60px;
 }
 .btn_exge
 {
-    width: 80%; height: 18px; background-color: #bc1616; font-size: 12px; color: #fff; margin-top: 5px;margin-bottom:5px; font-family: Arial; border-radius: 4px;text-align:center;text-shadow: 0 0 0 #f3f3f3;
+    width: 80%; background-color: #bc1616; font-size: 15px; color: #fff; margin-top: 5px;margin-bottom:5px; font-family: Arial; border-radius: 4px;text-align:center;text-shadow: 0 0 0 #f3f3f3;padding: 10px 4px;
 }
 .div_pnt
 {
@@ -1017,7 +1020,7 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .div_mpnt
 {
-    background-color: #FF7033; color: #fff; font-size: 15px
+    color: #fff; font-size: 15px
 }
 .mpnt_lft
 {

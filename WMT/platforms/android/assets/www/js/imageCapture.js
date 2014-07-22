@@ -13,7 +13,7 @@ function capturePhotoCamera() {
 }
 
 function onPhotoDataSuccess(imageData) {
-    $.mobile.navigate('#dvScanMemberShip');
+    //$.mobile.navigate('#dvScanMemberShip');
 }
 
 function onFail() {
@@ -81,7 +81,20 @@ function getPhoto(imageData) {
         }
         else
         {
-            $.mobile.navigate('#dvScanMemberShip');
+            var code = 'sad'
+            var ajaxcallobj = {
+            url: 'getmembershippoints',
+            data: { qr_code: code }
+            }
+            
+            WMT.jqXHR(ajaxcallobj, function (response) {
+                      if (response != undefined && response != null) {
+                      $('#abl_pnt').html(response[0].availPoints);
+                      $('#str_pnt').html(response[0].storePoints);
+                      $('#wmt_pnt').html(response[0].wmtPoints);
+                      
+                      }
+                      });
             
         }
     };
