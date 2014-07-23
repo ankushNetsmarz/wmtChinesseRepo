@@ -827,7 +827,7 @@
                                     <p id="P2">折扣</p>
                                 </div>
                                 <div class="ui-block-b">
-                                    <input type="text" placeholder="" id="Text1" name="txtMembershipdiscount" class="publish-scan" maxlength="10" />
+                                    <input type="text" placeholder="" id="txtMembershipdiscount" name="txtMembershipdiscount" class="publish-scan" maxlength="10" />
                                 </div>
                                 <div class="ui-block-b currency">%</div>
                             </div>
@@ -1996,6 +1996,72 @@
         </div>
     </div>
 
+
+      <!-- Gift Exchange  -->
+
+     <div data-role="page" id="dvExchange">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">         
+            <div> <h1>礼品兑换</h1> </div>
+               <div class="maindiv_scan_lft clsback"><img src="css/images/back_icon.png" />返回</div>
+             <div class="maindiv_scan_rgt "><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="A2">帮助</a></div> 
+                   
+            <div class="cus_clr"></div>           
+            </div>
+ 
+        <div data-role="content" id="Div6" class="ui-content headerChild">
+            <div class="ui-field-contain">           
+                    <div class="pnt_exch" >积分兑换</div>  
+                <div style="width:100%"> 
+                <div class="gft_pnt_lft">积分：</div> <div class="gft_pnt_rgt"> 500</div>
+                    </div>   
+                 <div class="cus_clr" ></div>
+                <div class="gft_pnt_lft cus_mgn">数量：</div> <div class="gft_pnt_rgt"><div class="cus_minus">
+                    <img src="css/images/minus.jpg" />
+                     </div><div class="cus_plus">
+                      2 <img src="css/images/plus_icon.jpg" /></div></div>
+                 <div class="cus_clr" ></div>
+                <div class="gft_pnt_lft">合计积分：</div> <div class="gft_pnt_rgt">1000</div>
+                 <div class="cus_clr" ></div>
+                <div class="gft_gap"> &nbsp </div>
+                 <div class="pnt_exch" >顾客联系方式</div>  
+                 <div class="cus_pho_lft">1234567</div> <div class="cus_pho_rgt">   <div class="btn_cus_phone" id="Div5">电话 :</div></div>              
+                  <div class="cus_btn_exg"><div class="btn_cus_Exg" id="Div7">兑换</div></div>
+            
+              
+                </div>
+         </div>
+                 <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            </div>
+
 </body>
 <script type="text/javascript" src="js/offlineScan/grid.js"></script>
 <script type="text/javascript" src="js/offlineScan/version.js"></script>
@@ -2023,5 +2089,5 @@
 <script type="text/javascript" src="js/qrscancode.js"></script>
 <script type="text/javascript" src="js/mystore.js"></script>
 <script type="text/javascript" src="js/publish.js"></script>
-<script src="Xml/ReadXml.js"></script>
+<script src="js/GiftExchange.js"></script>
 </html>

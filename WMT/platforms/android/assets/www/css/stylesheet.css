@@ -1093,3 +1093,114 @@ text-shadow: 0 0 0 #f3f3f3;
         width: 1.875em;
     }
 }
+/*************************** Gift Exchange*******************/
+
+
+.pnt_exch 
+{
+   background-color: #ff7033;
+    padding:3px;
+  text-align:left;
+  color:#fff;
+ 
+}
+.gft_pnt_lft
+{
+    line-height:40px;
+    background-color:white;
+     border-bottom: 1px solid #D5D5D5;
+     text-align:left;
+     float:left;
+      width:50%;
+}
+.gft_pnt_rgt
+{
+       line-height:40px;
+          border-bottom: 1px solid #D5D5D5;
+        background-color:white;
+         float:left;
+         width:43%;
+         padding-right:7%;
+         text-align:right;
+
+}
+.btn_cus_phone
+{
+ 
+    text-align: center; 
+    width: 84%; 
+    background-color: #bc1616; 
+    border-radius: 4px; 
+       margin-top: 4px;
+    color:#fff;
+    text-shadow: 0 0 0 #f3f3f3;
+ 
+    font-size:15px;
+}
+.cus_pho_lft
+{
+       line-height:40px;
+    background-color:white;
+     border-bottom: 1px solid #D5D5D5;
+     text-align:left;
+     float:left;
+      width:70%;
+      height:55px;
+
+}
+.cus_pho_rgt
+{
+      line-height:40px;
+          border-bottom: 1px solid #D5D5D5;
+        background-color:white;
+         float:left;
+         width:30%;
+         text-align:right;
+           height:55px;
+}
+.btn_cus_Exg
+{
+    margin-top:80px;
+     text-align: center; 
+         background-color: #bc1616; 
+    border-radius: 4px; 
+
+    color:#fff;
+    text-shadow: 0 0 0 #f3f3f3;
+ 
+    font-size:15px;
+
+}
+.cus_btn_exg
+{
+    line-height: 35px;
+    padding-right:25px;
+    padding-left:25px;
+}
+.gft_gap
+{
+
+          border-bottom: 1px solid #D5D5D5;
+        background-color:white;
+         float:left;
+         width:100%;
+         text-align:right;
+}
+.cus_minus
+{
+      padding-top:5px;
+    width:20%;
+    float:left;
+}
+.cus_plus
+{
+    padding-top:5px;
+     width:80%;
+     float:left;
+}
+.cus_mgn
+{
+    padding-top:5px;
+}
+
+/******************************************************************************************/

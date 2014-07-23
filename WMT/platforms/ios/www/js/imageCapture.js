@@ -13,7 +13,7 @@ function capturePhotoCamera() {
 }
 
 function onPhotoDataSuccess(imageData) {
-    //$.mobile.navigate('#dvScanMemberShip');
+    $.mobile.navigate('#dvScanMemberShip');
 }
 
 function onFail() {
@@ -50,7 +50,7 @@ function capturePhotoLibrary2() {
 }
 
 function onSuccess(imageData) {
-   // $('img.clsImage').attr('src', "data:image/jpeg;base64," + imageData);
+    $('img.clsImage').attr('src', "data:image/jpeg;base64," + imageData);
     //    var image = document.getElementByClass('clsImage');
     //    image.src = "data:image/jpeg;base64," + imageData;
     try
@@ -81,20 +81,7 @@ function getPhoto(imageData) {
         }
         else
         {
-            var code = 'sad'
-            var ajaxcallobj = {
-            url: 'getmembershippoints',
-            data: { qr_code: code }
-            }
-            
-            WMT.jqXHR(ajaxcallobj, function (response) {
-                      if (response != undefined && response != null) {
-                      $('#abl_pnt').html(response[0].availPoints);
-                      $('#str_pnt').html(response[0].storePoints);
-                      $('#wmt_pnt').html(response[0].wmtPoints);
-                      
-                      }
-                      });
+           // $.mobile.navigate('#dvScanMemberShip');
             
         }
     };
