@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0D9EBD4B13294594811B518C /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4A886C60384134884F7AA7 /* CDVNotification.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -59,6 +58,7 @@
 		E733F4A8195ACB1F00550A44 /* imageCapture.js in Sources */ = {isa = PBXBuildFile; fileRef = E733F4A7195ACB1F00550A44 /* imageCapture.js */; };
 		EBBD64EE236B40D68B95D1AA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837614D310BA4B8AAA0853B2 /* CoreVideo.framework */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
+		72B48A13E0994BBDB9184705 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E0CE22486F41BC86A2C6B5 /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +145,8 @@
 		F5E221796D5B421DBD9D781F /* CDVCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVCamera.m; path = org.apache.cordova.camera/CDVCamera.m; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = WMT/config.xml; sourceTree = "<group>"; };
 		FDDB590F3FB3478AAF418FDA /* CDVNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVNotification.h; path = org.apache.cordova.dialogs/CDVNotification.h; sourceTree = "<group>"; };
+		46E0CE22486F41BC86A2C6B5 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		7028A0BDBD654F09ABE46916 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +316,8 @@
 				496B0AA995D145A3896C226D /* CDVReachability.h */,
 				3C4A886C60384134884F7AA7 /* CDVNotification.m */,
 				FDDB590F3FB3478AAF418FDA /* CDVNotification.h */,
+				46E0CE22486F41BC86A2C6B5 /* CDVInAppBrowser.m */,
+				7028A0BDBD654F09ABE46916 /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = WMT/Plugins;
@@ -497,6 +501,7 @@
 				6639369464C2419D95996FB4 /* CDVConnection.m in Sources */,
 				69410A407C6A48A3855BE7A6 /* CDVReachability.m in Sources */,
 				0D9EBD4B13294594811B518C /* CDVNotification.m in Sources */,
+				72B48A13E0994BBDB9184705 /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

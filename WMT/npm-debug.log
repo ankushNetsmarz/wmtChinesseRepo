@@ -1,0 +1,94 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'update', '-g', 'cordova' ]
+2 info using npm@1.4.14
+3 info using node@v0.10.29
+4 verbose url raw cordova
+5 verbose url resolving [ 'https://registry.npmjs.org/', './cordova' ]
+6 verbose url resolved https://registry.npmjs.org/cordova
+7 info trying registry request attempt 1 at 20:59:42
+8 verbose etag "9GM707EG6H5E9IPCPRUF70NFW"
+9 http GET https://registry.npmjs.org/cordova
+10 http 304 https://registry.npmjs.org/cordova
+11 silly registry.get cb [ 304,
+11 silly registry.get   { date: 'Tue, 29 Jul 2014 15:29:48 GMT',
+11 silly registry.get     server: 'Apache',
+11 silly registry.get     via: '1.1 varnish',
+11 silly registry.get     'last-modified': 'Tue, 29 Jul 2014 15:29:48 GMT',
+11 silly registry.get     'cache-control': 'max-age=60',
+11 silly registry.get     etag: '"9GM707EG6H5E9IPCPRUF70NFW"',
+11 silly registry.get     'x-served-by': 'cache-lax1420-LAX',
+11 silly registry.get     'x-cache': 'HIT',
+11 silly registry.get     'x-cache-hits': '1',
+11 silly registry.get     'x-timer': 'S1406647788.151922,VS0,VE1',
+11 silly registry.get     vary: 'Accept',
+11 silly registry.get     'content-length': '0',
+11 silly registry.get     'keep-alive': 'timeout=10, max=50',
+11 silly registry.get     connection: 'Keep-Alive' } ]
+12 verbose etag cordova from cache
+13 info outdated updating [ [ '/usr/local/lib',
+13 info outdated     'cordova',
+13 info outdated     '3.1.0-0.1.0',
+13 info outdated     '3.5.0-0.2.6',
+13 info outdated     '3.5.0-0.2.6',
+13 info outdated     '*' ] ]
+14 verbose install where,what [ '/usr/local/lib', [ 'cordova@3.5.0-0.2.6' ] ]
+15 verbose cache add [ 'cordova@3.5.0-0.2.6', null ]
+16 verbose cache add name=undefined spec="cordova@3.5.0-0.2.6" args=["cordova@3.5.0-0.2.6",null]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: 'cordova@3.5.0-0.2.6',
+17 verbose parsed url   path: 'cordova@3.5.0-0.2.6',
+17 verbose parsed url   href: 'cordova@3.5.0-0.2.6' }
+18 verbose cache add name="cordova" spec="3.5.0-0.2.6" args=["cordova","3.5.0-0.2.6"]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: '3.5.0-0.2.6',
+19 verbose parsed url   path: '3.5.0-0.2.6',
+19 verbose parsed url   href: '3.5.0-0.2.6' }
+20 verbose addNamed [ 'cordova', '3.5.0-0.2.6' ]
+21 verbose addNamed [ '3.5.0-0.2.6', '3.5.0-0.2.6' ]
+22 silly lockFile 357664b8-cordova-3-5-0-0-2-6 cordova@3.5.0-0.2.6
+23 verbose lock cordova@3.5.0-0.2.6 /Users/weexcel/.npm/357664b8-cordova-3-5-0-0-2-6.lock
+24 verbose registry.get cordova not expired, no request
+25 silly lockFile 17b57a84--cordova-cordova-3-5-0-0-2-6-tgz https://registry.npmjs.org/cordova/-/cordova-3.5.0-0.2.6.tgz
+26 verbose lock https://registry.npmjs.org/cordova/-/cordova-3.5.0-0.2.6.tgz /Users/weexcel/.npm/17b57a84--cordova-cordova-3-5-0-0-2-6-tgz.lock
+27 verbose addRemoteTarball [ 'https://registry.npmjs.org/cordova/-/cordova-3.5.0-0.2.6.tgz',
+27 verbose addRemoteTarball   '8331f854734c2db5d2494a0e2b577fd6bcf26de8' ]
+28 info retry fetch attempt 1 at 20:59:48
+29 verbose fetch to= /var/folders/3k/r60mtqlx4_9dqc0l_qnvbmsr0000gn/T/npm-29370-dlAdigdo/registry.npmjs.org/cordova/-/cordova-3.5.0-0.2.6.tgz
+30 http GET https://registry.npmjs.org/cordova/-/cordova-3.5.0-0.2.6.tgz
+31 http 200 https://registry.npmjs.org/cordova/-/cordova-3.5.0-0.2.6.tgz
+32 silly lockFile 17b57a84--cordova-cordova-3-5-0-0-2-6-tgz https://registry.npmjs.org/cordova/-/cordova-3.5.0-0.2.6.tgz
+33 silly lockFile 17b57a84--cordova-cordova-3-5-0-0-2-6-tgz https://registry.npmjs.org/cordova/-/cordova-3.5.0-0.2.6.tgz
+34 silly lockFile 357664b8-cordova-3-5-0-0-2-6 cordova@3.5.0-0.2.6
+35 silly lockFile 357664b8-cordova-3-5-0-0-2-6 cordova@3.5.0-0.2.6
+36 error Error: EACCES, mkdir '/Users/weexcel/.npm/cordova/3.5.0-0.2.6'
+36 error  { [Error: EACCES, mkdir '/Users/weexcel/.npm/cordova/3.5.0-0.2.6']
+36 error   errno: 3,
+36 error   code: 'EACCES',
+36 error   path: '/Users/weexcel/.npm/cordova/3.5.0-0.2.6' }
+37 error Please try running this command again as root/Administrator.
+38 error System Darwin 13.1.0
+39 error command "node" "/usr/local/bin/npm" "update" "-g" "cordova"
+40 error cwd /Volumes/vol2/wmtRepoChinesse2/wmtChinesseRepo/WMT
+41 error node -v v0.10.29
+42 error npm -v 1.4.14
+43 error path /Users/weexcel/.npm/cordova/3.5.0-0.2.6
+44 error code EACCES
+45 error errno 3
+46 error stack Error: EACCES, mkdir '/Users/weexcel/.npm/cordova/3.5.0-0.2.6'
+47 verbose exit [ 3, true ]

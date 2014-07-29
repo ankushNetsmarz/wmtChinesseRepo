@@ -18,7 +18,7 @@
                 regObj.mobileNumber = MobileNo; regObj.emailAddress = Email;
             }
             else {
-                $.dynamic_popup(' <p>Phone number already exist.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                $.dynamic_popup(' <p>用户名已经存在，请使用其它名称代替！</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">关闭</a>');
             }
         });
 

@@ -1,4 +1,4 @@
-﻿body{font-family:Microsoft YaHei;}
+body{font-family:Microsoft YaHei;}
 .clsImage {
     margin: 0 auto;
 }
@@ -21,7 +21,7 @@
 .price-yaun-status {
     text-align: left;
 }
-.ui-btn-inline {width:90px;}
+.ui-btn-inline {width:80px;}
 
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
     background: none repeat scroll 0 0 #fff7e6;
@@ -819,7 +819,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
     width: auto;
 }
 .dvhelp {
-  
+    background-image: url("images/help_1.png");
+    background-repeat: no-repeat;
     cursor: pointer;
     float: right;
     height: 30px;
@@ -830,7 +831,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
    margin:12px -1px 0px -1px;
 }
 .clsHide {display:none !important;}
-.clsStorHide {display:none}
 .clsStoreShow {display:block !important;}
 .price-yaun-left span {color:red; padding:0 5px 0 0;}
 .currency {width: 2%; margin-top: 2.8%; text-align: left;}
@@ -841,9 +841,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
 /* style added on 07-02-2014*/
 .clsShow {/*display:block !important;*/}
 .ui-btn-inline span{color:white;}
-.ui-input-text#ProductPrice {height: 32px; width: 52px;  text-align: center;}
-.ui-input-text#ProductDiscount {height: 32px; width: 52px;  text-align: center;}
-.ui-input-text#ProductGifPoint {height: 32px; width: 52px;  text-align: center;}
+.ui-input-text#ProductPrice {height: 32px; width: 45px;  text-align: center;}
+.ui-input-text#ProductDiscount {height: 32px; width: 45px;  text-align: center;}
+.ui-input-text#ProductGifPoint {height: 32px; width: 45px;  text-align: center;}
 
 
 .rslides {  position: relative;  list-style: none;  overflow: hidden;  width: 100%;  padding: 0;  margin: 0;  }
@@ -905,7 +905,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
                         font-weight: bold;
                         padding-right: .25em;
                     }
-/*********************  QBR Scan ********************/
+                    
+                    /*********************  QBR Scan ********************/
 .btn_cok
 {
     margin-left: 70%; 
@@ -955,11 +956,11 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .Cus_dnt
 {
-    float:left;font-size:14px;text-shadow: 0 0 0 #f3f3f3;
+    float:left;font-size:14px;text-shadow: 0 0 0 #f3f3f3;margin-left:8px;margin-top:14px;
 }
 .div_itmdis
 {
- float:left;width:10%;
+ float:left;width:10%;margin-top:14px;
 }
 .div_mbrdis
 {
@@ -967,7 +968,7 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .mbr_disp
 {
-    float:left;margin-top:10px
+    float:left;margin-top:10px;margin-left:8px;
 }
 .div_mdis
 {
@@ -979,8 +980,7 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .mbrdis_lft
 {
-
-    background-color: #FF7033; text-align: left; width: 90%; float: left;font-size:14px;text-shadow: 0 0 0 #f3f3f3;
+    background-color: #FF7033; text-align: left;padding: 4px; float: left;font-size:14px;text-shadow: 0 0 0 #f3f3f3;
 }
 .mgn_lft
 {
@@ -996,11 +996,11 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .btn_cscn
 {
-    width: 30%; height: 20%; color: #fff; background-color: #bc1616; float: left; margin-left: 1%; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;height:60px;
+    width: 30%; height: 45px; color: #fff; background-color: #bc1616; float: left; margin-left: 1%; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;
 }
 .btn_nscn
 {
-    width: 30%; height: 20%; color: #fff; background-color: #bc1616; margin-left: 3%; float: left; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;height:60px;
+    width: 30%; height: 45px; color: #fff; background-color: #bc1616; margin-left: 3%; float: left; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;
 }
 .btn_exge
 {
@@ -1020,11 +1020,11 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .div_mpnt
 {
-    color: #fff; font-size: 15px
+    background-color: #FF7033; color: #fff; font-size: 15px
 }
 .mpnt_lft
 {
-    background-color: #FF7033; text-align: left; width: 90%; float: left;
+    background-color: #FF7033; text-align: left; padding:4px; float: left;width:100%;
 }
 .mpnt_rgt
 {
@@ -1046,6 +1046,10 @@ text-shadow: 0 0 0 #f3f3f3;
 {
     text-align: left; margin: 10%
 }
+h1
+{
+    font-size:20px !important;
+}
 .cuspto_rgt_lft
 {
     width: 70%; text-align: left; float: left; font-size: 14px; margin-top: 10px;text-shadow: 0 0 0 #f3f3f3;
@@ -1062,12 +1066,13 @@ text-shadow: 0 0 0 #f3f3f3;
 .maindiv_scan_rgt
 {
    position:absolute;
-   top:13px; right:5%; color:#fff; text-shadow:none;cursor:pointer;
+   top:18px; right:5%; color:#fff; text-shadow:none;cursor:pointer;
    font-size:13px;
 }
 .cus_hlp
 {
     color:#fff !important;
+    font-size:16px !important;
 }
 
 /* Custom indentations are needed because the length of custom labels differs from
@@ -1093,6 +1098,7 @@ text-shadow: 0 0 0 #f3f3f3;
         width: 1.875em;
     }
 }
+
 /*************************** Gift Exchange*******************/
 
 
@@ -1204,3 +1210,56 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 
 /******************************************************************************************/
+
+/*************************************** Membetship Detail *****************************************/
+
+.mbr_dtl
+{
+     border-bottom: 1px solid #BDBDBD;
+     width:25%;float:left;
+}
+.loadMember
+{
+    text-align:center;color:red;margin-top:10px;cursor:pointer;
+}
+
+
+/***************************************************************************************************/
+
+/********************************** Restration Store **********************************************************/
+.cus_txt_lft
+{
+    text-align: left;
+}
+.clsback
+{
+    font-size:16px !important;
+    margin-top:5px;
+}
+/**************************************************************************************************************/
+
+/********************************** Save Password from My stored **********************************************************/
+.udte_pwd
+{
+     border: 1px solid #000!important;
+      border: 1px solid #000!important;
+      cursor: pointer;
+      color:#fff!important;
+      background-color: #c44347;
+      padding:2px 13px!important;
+      width:auto!important;
+      float:right!important; margin-top:10px!important; margin-bottom:10px!important; line-height:none!important; min-height:inherit!important; font-family:sans-serif!important; font-weight:normal!important; font-size:16px!important; text-shadow:0px 0px #000!important;
+}
+
+/**************************************************************************************************************/
+
+.sorttext
+{
+    width:100px;color:#fff;background-color:#bc1616;cursor:pointer;z-index:2;border-radius:3px;box-shadow: 10px 10px 5px #888888;text-align:center;margin-top:5px;
+}
+.sort_By
+{
+    width:100px;color:#fff;background-color:#000;
+
+    text-align:center;
+}

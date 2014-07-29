@@ -1,4 +1,4 @@
-/**
+﻿/**
     Copyright (c) 2012-2014 Serban Ghita <serbanghita@gmail.com>
     jQuery Mobile dynamic popup. MIT Licensed
 */
@@ -54,7 +54,7 @@
             if( !$popup.length ){
 
                 // Create the generic popup elements.
-                $popupMain = $('<div><div data-role="header" data-theme="a" class="ui-header ui-bar-a" style="top: -10px;border-radius: 5px;"> <h1>Alert</h1> </div></div>').attr({
+                $popupMain = $('<div><div data-role="header" data-theme="a" class="ui-header ui-bar-a" style="top: -10px;border-radius: 5px;"> <h1> 错误信息</h1> </div></div>').attr({
                                                     'id': settings.popupId,
                                                     'data-role': 'popup',
                                                     'data-theme': settings['data-theme'],
@@ -70,12 +70,12 @@
                                                     })
                                                     .addClass('ui-content ui-popup-content');
 
-                $popupCloseBtn = $('<a></a>').attr({
-                                                'href': '#',
-                                                'data-role': 'button',
-                                                'data-rel': settings['data-rel']
-                                            })
-                                            .addClass('ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right ui-popup-close-btn');
+                //$popupCloseBtn = $('<a></a>').attr({
+                //                                'href': '#',
+                //                                'data-role': 'button',
+                //                                'data-rel': settings['data-rel']
+                //                            })
+                //                            .addClass('ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right ui-popup-close-btn');
 
             } else {
 

@@ -15,10 +15,10 @@
                 
                 
                 /* check if store has published pin then show publish screen*/
-                if (objlocalStorage.Publish_Pin != null && objlocalStorage.Publish_Pin != undefined && $navTo != "#dvViewPublishedInfo" && objlocalStorage.Publish_Pin != "") {
-                $.mobile.navigate('#dvPublishPin');
-                }
-                else {
+                //if (objlocalStorage.Publish_Pin != null && objlocalStorage.Publish_Pin != undefined && $navTo != "#dvViewPublishedInfo" && objlocalStorage.Publish_Pin != "") {
+                //$.mobile.navigate('#dvPublishPin');
+                //}
+                //else {
                 if ($navTo == "#dvMemberShipDiscount") {
                 $.mobile.navigate($navTo);
                 membership.getMemberShipdiscount();
@@ -33,7 +33,7 @@
                 else {
                 $.mobile.navigate($navTo);
                 }
-                }
+                //}
                 PID = 0, counter = 1;
                 $('.clrPublishedInfo').val('');
                 });
@@ -70,11 +70,25 @@
                 }
                 WMT.jqXHR(ajaxcallobj, function (response) {
                           if (response.success > 0) {
-                          $('#frmPublishPin')[0].reset();
-                          $.mobile.navigate($navTo);
-                          if ($navTo == "#dvMemberShipDiscount") {
-                          membership.getMemberShipdiscount();
-                          }
+                              if (Publishpinfor == "Password") {
+                                  ChangePassword();
+                                  $.mobile.navigate('#dvStore');
+                              }
+                              else if (Publishpinfor == "Store") {
+                                  savestoreinformation();
+                                  $.mobile.navigate('#dvStore');
+
+                              }
+                              else if (Publishpinfor == "Industries") {
+
+                                  saveindustriesinformation();
+                                  $.mobile.navigate('#dvStore');
+
+                              }
+                              else {
+                                  $('#frmPublishPin')[0].reset();
+                                  $.mobile.navigate('#dvPublishInfo');
+                              }
                           }
                           else {
                           $.dynamic_popup(' <p>Invalid Publish Password.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
@@ -508,4 +522,16 @@
                                 }
                                 });
  }
+    /*************** Check Publish Pin ***********************/
+ $('.Publish_screen').click(function () {
+     if (objlocalStorage.Publish_Pin != null && objlocalStorage.Publish_Pin != undefined && $navTo != "#dvViewPublishedInfo" && objlocalStorage.Publish_Pin != "") {
+         $.mobile.navigate('#dvPublishPin');
+     }
+     else {
+         $.mobile.navigate('#dvPublishInfo');
+     }
+
+ });
+
+    /********************************************************/
  })(jQuery)
