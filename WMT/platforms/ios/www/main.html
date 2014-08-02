@@ -238,41 +238,41 @@
             </div>
             <form id="frmStep3" onsubmit="return false;">
                 <div class="ui-field-contain">
-                    <label for="txtName">商户名称：</label>
-                    <input type="text" name="txtStoreName" id="txtStoreName" placeholder="Store Name" maxlength="100" />
+                    <label for="txtName" class="cus_txt_lft">商户名称：</label>
+                    <input type="text" name="txtStoreName" id="txtStoreName" placeholder="商户名称" maxlength="100" />
                     <div class="clr"></div>
-                    <label for="selectAddress" id="txtAddress">地址：</label>
+                    <label for="selectAddress" id="txtAddress" class="cus_txt_lft">地址：</label>
                     <input type="text" name="txtAddressDetail1" id="txtAddressDetail1" placeholder="地址">
                     <div class="clr"></div>
-                    <label for="txtAddressDetail" class="select"></label>
+                    <label for="txtAddressDetail" class="select cus_txt_lft" >位置描述 :</label>
                     <input type="text" name="txtAddressDetail2" id="txtAddressDetail2" placeholder="位置描述（可选）">
                     <div class="clr"></div>
-                    <label for="txtPhone">电话：</label>
-                    <input type="text" name="txtPhone" id="txtPhone" maxlength="15" placeholder="Phone">
+                    <label for="txtPhone" class="cus_txt_lft">电话：</label>
+                    <input type="text" name="txtPhone" id="txtPhone" maxlength="15" placeholder="电话">
                     <div class="clr"></div>
-               <label for="selectIndustrylevel1">行业：</label>
+               <label for="selectIndustrylevel1" class="cus_txt_lft">行业：</label>
                     <select name="selectIndustrylevel1" id="selectIndustrylevel1" data-theme="c" data-native-menu="false">
                          <option value="Industrylevel1" id="Option7">还没有选择</option>
-                        <option value="Industrylevel1" id="txtIndustry1">Industry level1</option>
-                        <option value="Industrylevel2" id="txtIndustry2">Industry level2</option>
-                        <option value="Industrylevel3" id="txtIndustry3">Industry level3</option>
-                        <option value="Industrylevel4">Industry level4</option>
+                        <option value="Industrylevel1" id="txtIndustry1">工业级1</option>
+                        <option value="Industrylevel2" id="txtIndustry2">工业级2</option>
+                        <option value="Industrylevel3" id="txtIndustry3">工业级3</option>
+                        <option value="Industrylevel4">工业级4</option>
                     </select>
                     <label for="selectIndustrylevel2"></label>
                     <select name="selectIndustrylevel2" id="selectIndustrylevel2" data-theme="c" data-native-menu="false">
                          <option value="Industrylevel1" id="Option8">还没有选择</option>
-                      <option value="Industrylevel1" id="Option1">Industry level1</option>
-                        <option value="Industrylevel2" id="Option2">Industry level2</option>
-                        <option value="Industrylevel3" id="Option3">Industry level3</option>
-                        <option value="Industrylevel4">Industry level4</option>
+                      <option value="Industrylevel1" id="Option1">工业级1</option>
+                        <option value="Industrylevel2" id="Option2">工业级2</option>
+                        <option value="Industrylevel3" id="Option3">工业级3</option>
+                        <option value="Industrylevel4">工业级4</option>
                     </select>
                     <label for="selectIndustrylevel3"></label>
                     <select name="selectIndustrylevel3" id="selectIndustrylevel3" data-theme="c" data-native-menu="false">
                          <option value="Industrylevel1" id="Option9">还没有选择</option>
-                      <option value="Industrylevel1" id="Option4">Industry level1</option>
-                        <option value="Industrylevel2" id="Option5">Industry level2</option>
-                        <option value="Industrylevel3" id="Option6">Industry level3</option>
-                        <option value="Industrylevel4">Industry level4</option>
+                      <option value="Industrylevel1" id="Option4">工业级1</option>
+                        <option value="Industrylevel2" id="Option5">工业级2</option>
+                        <option value="Industrylevel3" id="Option6">工业级3</option>
+                        <option value="Industrylevel4">工业级4</option>
                     </select>
                   <!--  <label for="selectIndustrylevel1">Type</label>
                     <select name="sltIndustryType" id="sltIndustryType" data-theme="c" data-native-menu="false">
@@ -307,7 +307,7 @@
             <form id="frmStep4" onsubmit="return false;">
                 <div class="ui-field-contain">
                     <label for="txtOwnerName" id="txtOwner"  class="cus_txt_lft">管理人</label>
-                    <input type="text" name="txtOwnerName" id="txtOwnerName" maxlength="100" placeholder="Please enter full name">
+                    <input type="text" name="txtOwnerName" id="txtOwnerName" maxlength="100" placeholder="请输入全名">
                     <div class="clr"></div>
                     <label for="txtID" id="txtID1"  class="cus_txt_lft">证件号</label>
                     <input type="text" name="txtID" id="txtID" maxlength="20" placeholder="请输入身份证信息">
@@ -353,9 +353,9 @@
             <span class="clr">为了更好的保护您的信息安全，建议您添加发布密码。只有拥有发布密码的人可以更改和发布信息。 </span>
             <form id="frmStep5" onsubmit="return false;">
                 <div class="ui-field-contain">
-                    <input type="password" name="txtPublishPassword" id="txtPublishPassword" placeholder="Enter Password">
+                    <input type="password" name="txtPublishPassword" id="txtPublishPassword" placeholder="输入密码">
                     <div class="clr"></div>
-                    <input type="password" name="txtRepPublishPassword" id="txtRepPublishPassword" placeholder="Repeat Password">
+                    <input type="password" name="txtRepPublishPassword" id="txtRepPublishPassword" placeholder="重复密码">
                     <div class="clr"></div>
                 </div>
                 <input type="submit" id="nxt" value="下一步" data-theme="a">
@@ -386,7 +386,7 @@
                     <p class="welcome" id="txtWelcomeWeiMaTao">多销售，多赚钱。<br>就是微码淘！</p>
                 </div>
                 <div class="clr"></div>
-                <input type="button" id="txtStartNow" onclick="$.fn.StartNow();" value="现在就开始使用" data-theme="a">
+                <input type="button" id="txtStartNow" value="现在就开始使用" data-theme="a">
                 <input type="button" id="txtExit" onclick="$.fn.Exit();" value="退出" data-theme="b">
             </div>
         </div>
@@ -412,17 +412,21 @@
             <div class="ui-field-contain">
                 <div class="button">
                    <a >  <div class="btn_cscn" data-theme="a" id="txtScanQRCode" onclick="QRScan.ScanMemberShipCard();">
-                        扫瞄会员卡二维码
+                       扫描<br />
+会员卡
+
 
                     </div></a>
                    <a > <div class="btn_nscn" data-theme="a" id="txtLoadLocalPicture" onclick="QRScan.LoadPicture();">
-                        调用本地图片
+                       本地<br />
+照片
 
                     </div></a>
     <a  href="#EnterMemberId" data-rel="popup" data-transition="pop" >
                     <div class="btn_nscn" data-theme="a;" >
                        
-                    输入会员ID
+                  输入<br />
+会员号
                        
                     </div></a>
                 </div>
@@ -464,11 +468,12 @@
                       <div id="Discount_Item_2"></div>                     
                     <div class="cst_div">
                         <div class='cus_tcst' id="txtTotalCost">合计花费：</div>
-                        <div style="width: 35%; float: left; margin-right: 10px;font-size:14px;">
+                        <div style="width: 38%; float: left; margin-right: 10px;font-size:14px;">
                             <input placeholder="0.00" value="" type="text" id="total_cost" style="text-align:right;"></div>
                          <div class="cus_clr" ></div>
                         <div class='cus_adis' id="txtAfterDiscount">折扣价：</div>
-                        <div class='cus_net'  id="net_cost"></div>
+                       <div style="width: 38%; float: left; margin-right: 10px;font-size:14px;">
+                            <input placeholder="0.00" value="" type="text" id="net_cost" style="text-align:right;" readonly ></div>
                         <div class="cus_clr" ></div>
                    
                     <div class="btn_cok" id="txtOK">确认</div>
@@ -1486,14 +1491,14 @@
                     <div class="clr"></div>
                 </div>
                 <div class="points-main">
-                    <div class="business-info">
+                    <div class="business-info busin_inf">
                         <ul>
-                            <li class="current"><a href="#dvSupplierInfo" id="txtViewSupplierInfo">供应商信息查看</a></li>
-                            <li><a href="#" id="txtViewIndustryInfo">行业信息查看</a></li>
-                            <li><a href="#" id="txtStoreComparationInfo">商户信息查看</a></li>
-                            <li><a href="#" id="txtViewLocationInfo">查看本地信息</a></li>
-                            <li><a href="#" id="txtViewHRInfo">查看人力信息</a></li>
-                            <li><a href="#" id="txtJoinVIP">加入VIP客户</a></li>
+                            <li class="current"><a href="#" id="txtViewSupplierInfo" class="change_active">供应商信息查看</a></li>
+                            <li><a href="#" id="txtViewIndustryInfo" class="change_active">行业信息查看</a></li>
+                            <li><a href="#" id="txtStoreComparationInfo" class="change_active">商户信息查看</a></li>
+                            <li><a href="#" id="txtViewLocationInfo" class="change_active">查看本地信息</a></li>
+                            <li><a href="#" id="txtViewHRInfo" class="change_active">查看人力信息</a></li>
+                            <li><a href="#" id="txtJoinVIP" class="change_active">加入VIP客户</a></li>
                         </ul>
                     </div>
 
@@ -1561,8 +1566,7 @@
             <div class="wapper-wrap">
                 <div class="wrap-left" style="text-align: left;">选择供应商</div>
                 <div class="wrap-left" style="text-align: right; width: auto; float: right;">
-                    排序<br>
-                    <center><img src="css/images/down-arrow.png" alt="" width="16" height="11"></center>
+                    排序<img src="css/images/down-arrow.png" alt="" width="16" height="11">
                 </div>
             </div>
         </div>
@@ -1703,7 +1707,7 @@
                                     <div class="name">商户名称： </div>
                                     <div id="storename" class="address"></div>
                                     <div class="modyfy-button" style="background: none; border: none; box-shadow: none;">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
                                     </div>
                                 </div>
                             </div>
@@ -1714,12 +1718,22 @@
                                     <div class="name">密码: </div>
                                     <div id="change_password" class="address">******</div>
                                     <div class="modyfy-button" style="background: none; border: none; box-shadow: none;">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                          <div class="member-manage">
+                            <div class="wapper-wrap">
+                                <div class="add">
+                                    <div class="name">公布密码: </div>
+                                    <div id="Publish_Password" class="address">******</div>
+                                    <div class="modyfy-button" style="background: none; border: none; box-shadow: none;">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="member-manage">
                             <div class="wapper-wrap">
                                 <div class="add">
@@ -1727,7 +1741,7 @@
                                     <div id="storeaddresss" class="address">
                                     </div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
                                     </div>
                                 </div>
                             </div>
@@ -1739,7 +1753,7 @@
                                     <div id="storeaddresss2" class="address">
                                     </div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
                                     </div>
                                 </div>
                             </div>
@@ -1751,7 +1765,7 @@
                                     <div class="name">电话：</div>
                                     <div id="storephone" class="address"></div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
                                     </div>
                                 </div>
                             </div>
@@ -1762,7 +1776,7 @@
                                     <div class="name">电子邮件: </div>
                                     <div id="emailaddress" class="address"></div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
                                     </div>
                                 </div>
                             </div>
@@ -1774,7 +1788,7 @@
                                     <div class="name">管理者: </div>
                                     <div id="storeownername" class="address"></div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
                                     </div>
                                 </div>
                             </div>
@@ -1785,7 +1799,7 @@
                         <div class="wapper-wrap">
                             <div class="button">
                                 <div class="help-btn-pick clsStorHide btnStoreChanges">
-                                    <input type="submit" value="Save Changes" data-theme="a" id="Submit2">
+                                    <input type="submit" value="保存更改" data-theme="a" id="Submit2">
                                 </div>
                                 <div class="clr"></div>
                             </div>
@@ -1798,24 +1812,24 @@
                     <div class="wapper-wrap">
                         <label class="name" for="selectIndustrylevel1">行业</label>
                         <select name="sltIndustryEdit1" id="sltIndustryEdit1" data-theme="c" data-native-menu="false">
-                            <option value="Industrylevel1">Industry level1</option>
+                           <!-- <option value="Industrylevel1">Industry level1</option>
                             <option value="Industrylevel2">Industry level2</option>
                             <option value="Industrylevel3">Industry level3</option>
-                            <option value="Industrylevel4">Industry level4</option>
+                            <option value="Industrylevel4">Industry level4</option>-->
                         </select>
                         <label class="name" for="sltIndustryEdit2"></label>
                         <select name="sltIndustryEdit2" id="sltIndustryEdit2" data-theme="c" data-native-menu="false">
-                            <option value="Industrylevel1">Industry level1</option>
-                            <option value="Industrylevel2">Industry level2</option>
-                            <option value="Industrylevel3">Industry level3</option>
-                            <option value="Industrylevel4">Industry level4</option>
+                            <option value="Industrylevel1">工业级1</option>
+                            <option value="Industrylevel2">I工业级2</option>
+                            <option value="Industrylevel3">I工业级3</option>
+                            <option value="Industrylevel4">工业级4</option>
                         </select>
                         <label class="name" for="sltIndustryEdit3"></label>
                         <select name="sltIndustryEdit3" id="sltIndustryEdit3" data-theme="c" data-native-menu="false">
-                            <option value="Industrylevel1">Industry level1</option>
-                            <option value="Industrylevel2">Industry level2</option>
-                            <option value="Industrylevel3">Industry level3</option>
-                            <option value="Industrylevel4">Industry level4</option>
+                            <option value="Industrylevel1">工业级1</option>
+                            <option value="Industrylevel2">I工业级2</option>
+                            <option value="Industrylevel3">I工业级3</option>
+                            <option value="Industrylevel4">工业级4</option>
                         </select>
 
                         <div class="button">
@@ -1876,19 +1890,20 @@
 
 
     <div id="helpPopup-outside-page" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-        <h3>WMT 帮助</h3>
+      <!--  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>-->
+        <h3>会员 帮助</h3>
         <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
-           <div id="helptext">  Welcome to WMT, This page will be updated later, for now please call you customer services directly! Thank you, WMT Team.</div>
+           <div id="helptext">  欢迎WMT，此页面将在稍后更新，现在请直接致电您的客户服务！谢谢，WMT队。</div>
         </div>
+         <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" href="#">关闭</a>
     </div>
 
     <!-- Agreement Popup -->
     <div id="dvAgreement" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
 
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">关闭</a>
         <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
-            Welcome to WMT, this content will be updated later. For now please call your dedicated customer services about the testing agreement!
+            欢迎光临WMT，此内容将在以后更新。现在请致电您的客户服务有关的测试协议！
         </div>
     </div>
 
@@ -1896,7 +1911,7 @@
 
     <div id="dvImageUpload" data-overlay-theme="a" data-theme="b" data-dismissible="true" style="min-width: 250px; max-width: 500px;" data-position-to="window">
 
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">关闭</a>
         <h3>拍照</h3>
         <div role="main" class="ui-content">
             <input id="btnPickImageCamera" type="button" value="相机拍照" data-theme="a">
@@ -1922,20 +1937,20 @@
             <div class="ui-field-contain">           
                     <div class="pnt_exch" >积分兑换</div>  
                 <div style="width:100%"> 
-                <div class="gft_pnt_lft">积分：</div> <div class="gft_pnt_rgt"> 500</div>
+                <div class="gft_pnt_lft">积分：</div> <div class="gft_pnt_rgt" id="gift_point"> </div>
                     </div>   
                  <div class="cus_clr" ></div>
-                <div class="gft_pnt_lft cus_mgn">数量：</div> <div class="gft_pnt_rgt"><div class="cus_minus">
-                    <img src="css/images/minus.jpg" />
+                <div class="gft_pnt_lft cus_mgn"  style="width:55%">数量：</div> <div class="gft_pnt_rgt" style="width:38%"><div class="cus_minus">
+                    <img src="css/images/minus.jpg"  id="minus" />
                      </div><div class="cus_plus">
-                      2 <img src="css/images/plus_icon.jpg" /></div></div>
+                      <span id="gift-multiplier">1</span> <img src="css/images/plus_icon.jpg" id="plus" /></div></div>
                  <div class="cus_clr" ></div>
-                <div class="gft_pnt_lft">合计积分：</div> <div class="gft_pnt_rgt">1000</div>
+                <div class="gft_pnt_lft">合计积分：</div> <div class="gft_pnt_rgt"><span id="gift_Total">1000</span></div>
                  <div class="cus_clr" ></div>
                 <div class="gft_gap"> &nbsp </div>
                  <div class="pnt_exch" >顾客联系方式</div>  
                  <div class="cus_pho_lft">1234567</div> <div class="cus_pho_rgt">   <div class="btn_cus_phone" id="Div5">电话 :</div></div>              
-                  <div class="cus_btn_exg"><div class="btn_cus_Exg" id="Div7">兑换</div></div>
+                  <div class="cus_btn_exg"><div class="btn_cus_Exg" id="Exchange_point">兑换</div></div>
             
               
                 </div>
@@ -1974,24 +1989,23 @@
  <!---- Enter Member ID ----->
      <div id="EnterMemberId" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
 
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-        <h3>Enter Member ID</h3>
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">关闭</a>
+        <h3>输入用户名</h3>
         <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
             
             <input type="text" id="member_id" style="border:solid 1px red"  />
-              <input type="button" value="ok" id="submitmemberid" />
+              <input type="button" value="行" id="submitmemberid" />
         </div>
     </div>
 
            <!---- Select Sort Parameter ----->
-     <div id="SortParameter" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
-
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+     <div id="SortParameter" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">       
       <!-- <div style="width:200px;background-color:#ff0000;color:#fff"> <h3>Sort With..</h3></div>-->
         <div role="main" class="ui-content" style="text-align: left; max-height: 600px;  overflow-x: hidden;">
-                <div  class="sort_By"> Sort By </div>
-            <div id="Sort_name" class="sorttext"> Name </div>
-              <div id="Sort_TotalPoint" class="sorttext" > Total Point</div>
+                <div  class="sort_By"> 排序方式 </div>
+            <div id="Sort_name" class="sorttext"> 名称 </div>
+              <div id="Sort_TotalPoint" class="sorttext" > 总积分</div>
+            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" href="#">关闭</a>
         </div>
     </div>
 
@@ -2025,6 +2039,7 @@
 <script type="text/javascript" src="js/qrscancode.js"></script>
 <script type="text/javascript" src="js/mystore.js"></script>
 <script type="text/javascript" src="js/publish.js"></script>
+<script type="text/javascript" src="js/businessInfo.js"></script>
 <script src="js/GiftExchange.js"></script>
 <script src="js/Membership.js"></script>
 </html>

@@ -1,4 +1,4 @@
-
+var pinentered = 0;
 (function ($) {
  
  
@@ -45,13 +45,13 @@
                 $thisImage = $(this).children('img');
                 });
  $(document).on('click', '#btnPickImageCamera', function () {
-                capturePhotoCamera();
+                capturePhotoCamera($thisImage);
                 $thisImage.attr('src', "data:image/jpeg;base64," + imageDataObject);
                 $('#cancelUpload').trigger('click');
                 
                 });
  $(document).on('click', '#btnPickImageGallery', function () {
-                capturePhotoLibrary();
+                capturePhotoLibrary($thisImage);
                 $thisImage.attr('src', "data:image/jpeg;base64," + imageDataObject);
                 $('#cancelUpload').trigger('click');
                 });
@@ -69,30 +69,43 @@
                 }
                 }
                 WMT.jqXHR(ajaxcallobj, function (response) {
-                          if (response.success > 0) {
-                              if (Publishpinfor == "Password") {
-                                  ChangePassword();
-                                  $.mobile.navigate('#dvStore');
-                              }
-                              else if (Publishpinfor == "Store") {
-                                  savestoreinformation();
-                                  $.mobile.navigate('#dvStore');
+                    $('#change_password').html('******');
+                    $('#Publish_Password').html('******');
+                    if (response.success > 0) {
+                        if (Publishpinfor == "Password") {
+                            ChangePassword();
+                            $.mobile.navigate('#dvStore');
+                        }
+                        else if (Publishpinfor == "Store") {
+                            savestoreinformation();
+                            $.mobile.navigate('#dvStore');
 
-                              }
-                              else if (Publishpinfor == "Industries") {
+                        }
+                        else if (Publishpinfor == "Industries") {
 
-                                  saveindustriesinformation();
-                                  $.mobile.navigate('#dvStore');
+                            saveindustriesinformation();
+                            $.mobile.navigate('#dvStore');
 
-                              }
-                              else {
-                                  $('#frmPublishPin')[0].reset();
-                                  $.mobile.navigate('#dvPublishInfo');
-                              }
-                          }
-                          else {
-                          $.dynamic_popup(' <p>Invalid Publish Password.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
-                          }
+                        }
+                        else if (Publishpinfor == "PublishPassword") {
+
+                            ChangePublishPassword();
+                            $.mobile.navigate('#dvStore');
+
+                        }
+                        else {
+                            $('#frmPublishPin')[0].reset();
+                            $.mobile.navigate('#dvPublishInfo');
+                        }
+                    }
+                    else {
+                        $.dynamic_popup(' <p>发布无效密码。</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                        pinentered = parseInt(pinentered) + 1;
+                        if (pinentered == 3) {
+                            pinentered = 0;
+                            $.mobile.navigate('#login');
+                        }
+                    }
                           });
                 
                 });
@@ -141,22 +154,22 @@
                           counter = counter + 1;
                           //$('#frmStoreInformation')[0].reset();
                           $.fn.ResetImageUpload();
-                          $.dynamicSuccess_popup('<p>Store infromation published succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                          $.dynamicSuccess_popup('<p>出版信息存储成功地.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                           }
                           
                           });
                 }
                 else {
-                $.dynamic_popup('<p>You can upload only 5 picture.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                    $.dynamic_popup('<p>您可以上传仅5图片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                 }
                 }
                 else {
-                $.dynamic_popup(' <p>Product information should only contain max 4000 words.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                    $.dynamic_popup(' <p>产品信息应该只包含最多 4000 字.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                 }
                 }
                 else {
                 
-                $.dynamic_popup('<p>Image can not be blank.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                    $.dynamic_popup('<p>影像不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                 
                 }
                 
@@ -176,7 +189,7 @@
                           if (response.success > 0) {
                               membershipDiscount = discount;
                               $('#dis_rte').html(membershipDiscount);
-                          $.dynamicSuccess_popup('<p>Membership discount published succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                              $.dynamicSuccess_popup('<p>发布会员折扣成功地.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                           }
                           });
                 
@@ -201,24 +214,25 @@
                 WMT.jqXHR(ajaxcallobj, function (response) {
                           if (response.success > 0) {
                           $('#frmProductDiscount')[0].reset(); $.fn.ResetImageUpload();
-                          $.dynamicSuccess_popup('<p>Product detail published succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                          $.dynamicSuccess_popup('<p>产品详细说明成功地出版.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                           }
                           
                           });
                 
                 }
                 else {
-                $.dynamic_popup('<p>You can upload only 5 picture.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                    $.dynamic_popup('<p>您可以上传仅5图片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                 }
-                
-                } else {
-                $.dynamic_popup(' <p>Product information should only contain max 4000 words.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
-                }
-                }
-                else {
-                
-                $.dynamic_popup('<p>Image can not be blank.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
-                }
+            }
+            else {
+                $.dynamic_popup(' <p>产品信息应该只包含最多 4000 字.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+            }
+        }
+        else {
+
+            $.dynamic_popup('<p>影像不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+
+        }
                 
                 });
  
@@ -241,23 +255,24 @@
                 WMT.jqXHR(ajaxcallobj, function (response) {
                           if (response.success > 0) {
                           $('#frmProductDuration')[0].reset(); $.fn.ResetImageUpload();
-                          $.dynamicSuccess_popup('<p>Product detail published succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                          $.dynamicSuccess_popup('<p>产品详细说明成功地出版.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                           }
                           
                           });
                 }
                 else {
-                $.dynamic_popup('<p>You can upload only 5 picture.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                    $.dynamic_popup('<p>您可以上传仅5图片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                 }
-                }
-                else {
-                $.dynamic_popup(' <p>Product information should only contain max 4000 words.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
-                }
-                }
-                else {
-                
-                $.dynamic_popup('<p>Image can not be blank.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
-                }
+            }
+            else {
+                $.dynamic_popup(' <p>产品信息应该只包含最多 4000 字.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+            }
+        }
+        else {
+
+            $.dynamic_popup('<p>影像不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+
+        }
                 });
  
  
@@ -281,22 +296,23 @@
                           if (response.success > 0) {
                           $('#frmGiftPoint')[0].reset();
                           $.fn.ResetImageUpload();
-                          $.dynamicSuccess_popup('<p>Product detail published succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                          $.dynamicSuccess_popup('<p>产品详细说明成功地出版.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                           }
                           
                           });
                 } else {
-                $.dynamic_popup('<p>You can upload only 5 picture.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                    $.dynamic_popup('<p>您可以上传仅5图片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                 }
-                
-                } else {
-                $.dynamic_popup(' <p>Product information should only contain max 4000 words.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
-                }
-                }
-                else {
-                
-                $.dynamic_popup('<p>Image can not be blank.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
-                }
+            }
+            else {
+                $.dynamic_popup(' <p>产品信息应该只包含最多 4000 字.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+            }
+        }
+        else {
+
+            $.dynamic_popup('<p>影像不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+
+        }
                 
                 });
  
@@ -320,8 +336,8 @@
            + '</div></div>'
            + '<div class="view-txt"><p><span id="ProductInfroduction" class="clsShow"> ' + response.StorePicture[i].introduction + '</span>'
            + '<textarea id="ProductInfroduction" class="textarea ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow clsHide">' + response.StorePicture[i].introduction + '</textarea></p></div>'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">Delete<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.StorePicture[i].PID + '" data-type="storepicture" data-inline="true" data-theme="b"></div>'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span>Modify</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="storepicture" data-id="' + response.StorePicture[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
+           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">删除<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.StorePicture[i].PID + '" data-type="storepicture" data-inline="true" data-theme="b"></div>'
+           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span>修改</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="storepicture" data-id="' + response.StorePicture[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
            }
            }
            if (response.ProductDiscount.length > 0) {
@@ -333,16 +349,16 @@
            + '<div class="view-txt"><p><span id="ProductInfroduction"> ' + response.ProductDiscount[i].introduction + '</span>'
            + '<textarea id="ProductInfroduction" class="textarea ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow clsHide">' + response.ProductDiscount[i].introduction + '</textarea></p></div>'
            
-           + '<div class="price-yaun"><div class="price-yaun-left"><p>Price: <span id="spnProductPrice" class="clsShow">' + response.ProductDiscount[i].price + '</span>'
+           + '<div class="price-yaun"><div class="price-yaun-left"><p>价格: <span id="spnProductPrice" class="clsShow">' + response.ProductDiscount[i].price + '</span>'
            + '<input type="text" id="ProductPrice" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductDiscount[i].price + '" /><span class="currencyName">Yuan</span></p></div>'
            
            + '<div class="price-yaun-left"><p>Discount: <span id="spnDiscount" class="clsShow">' + response.ProductDiscount[i].discount + '</span>'
            + '<input type="text" id="ProductDiscount" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductDiscount[i].discount + '" /><span class="currencyName">%</span></p></div>'
-           + '<p class="price-yaun-left price-yaun-status">Status: <select><option value="Active">Active<option><option value="Finish">Finished<option></select></p>'
+           + '<p class="price-yaun-left price-yaun-status">状态: <select><option value="Active">活动<option><option value="Finish">毕<option></select></p>'
            
            + '<div class="price-yaun-left"><div class="help-btn-publish">'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">Delete<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.ProductDiscount[i].PID + '" data-type="productdiscount" data-inline="true" data-theme="b"></div>'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span>Modify</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="productdiscount" data-id="' + response.ProductDiscount[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
+           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">删除<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.ProductDiscount[i].PID + '" data-type="productdiscount" data-inline="true" data-theme="b"></div>'
+           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span>修改</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="productdiscount" data-id="' + response.ProductDiscount[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
            }
            }
            if (response.ProductPromotion.length > 0) {
@@ -354,16 +370,16 @@
            + '<div class="view-txt"><p><span id="ProductInfroduction" class="clsShow"> ' + response.ProductPromotion[i].introduction + '</span>'
            + '<textarea id="ProductInfroduction" class="textarea ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow clsHide">' + response.ProductPromotion[i].introduction + '</textarea></p></div>'
            
-           + '<div class="price-yaun"><div class="price-yaun-left"><p>Price: <span id="spnProductPrice" class="clsShow">' + response.ProductPromotion[i].price + '</span>'
+           + '<div class="price-yaun"><div class="price-yaun-left"><p>价格: <span id="spnProductPrice" class="clsShow">' + response.ProductPromotion[i].price + '</span>'
            + '<input type="text" id="ProductPrice" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductPromotion[i].price + '" /><span class="currencyName">Yuan</span></p></div>'
            
            + '<div class="price-yaun-left"><p>Discount: <span id="spnDiscount" class="clsShow">' + response.ProductPromotion[i].discount + '</span>'
            + '<input type="text" id="ProductDiscount" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductPromotion[i].discount + '" /><span class="currencyName">%</span></p></div>'
-           + '<p class="price-yaun-left price-yaun-status">Status: <select><option value="Active">Active<option><option value="Finish">Finished<option></select></p>'
+           + '<p class="price-yaun-left price-yaun-status">状态: <select><option value="Active">活动<option><option value="Finish">毕<option></select></p>'
            
            + '<div class="price-yaun-left"><div class="help-btn-publish">'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">Delete<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.ProductPromotion[i].PID + '" data-type="productproduction" data-inline="true" data-theme="b"></div>'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span>Modify</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="productproduction" data-id="' + response.ProductPromotion[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
+           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">删除<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.ProductPromotion[i].PID + '" data-type="productproduction" data-inline="true" data-theme="b"></div>'
+           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span>修改</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="productproduction" data-id="' + response.ProductPromotion[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
            }
            }
            if (response.GiftPoint.length > 0) {
@@ -376,16 +392,16 @@
            + '<div class="view-txt"><p><span id="ProductInfroduction" class="clsShow"> ' + response.GiftPoint[i].introduction + '</span>'
            + '<textarea id="ProductInfroduction" class="textarea ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow clsHide">' + response.GiftPoint[i].introduction + '</textarea></p></div>'
            
-           + '<div class="price-yaun"><div class="price-yaun-left"><p>Price: <span id="spnProductPrice" class="clsShow">' + response.GiftPoint[i].price + '</span>'
+           + '<div class="price-yaun"><div class="price-yaun-left"><p>价格: <span id="spnProductPrice" class="clsShow">' + response.GiftPoint[i].price + '</span>'
            + '<input type="text" id="ProductPrice" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.GiftPoint[i].price + '" /><span class="currencyName">Yuan</span></p></div>'
            
-           + '<div class="price-yaun-left"><p>Gift Point: <span id="spnGifPoint" class="clsShow">' + response.GiftPoint[i].giftPoint + '</span>'
+           + '<div class="price-yaun-left"><p>礼品点: <span id="spnGifPoint" class="clsShow">' + response.GiftPoint[i].giftPoint + '</span>'
            + '<input type="text" id="ProductGifPoint" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.GiftPoint[i].giftPoint + '" /></p></div>'
-           + '<p class="price-yaun-left price-yaun-status">Status: <select><option value="Active">Active<option><option value="Finish">Finished<option></select></p>'
+           + '<p class="price-yaun-left price-yaun-status">状态: <select><option value="Active">活动<option><option value="Finish">毕<option></select></p>'
            
            + '<div class="price-yaun-left"><div class="help-btn-publish">'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">Delete<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.GiftPoint[i].PID + '" data-type="giftpoint" data-inline="true" data-theme="b"></div>'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span>Modify</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="giftpoint" data-id="' + response.GiftPoint[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
+           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">删除<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.GiftPoint[i].PID + '" data-type="giftpoint" data-inline="true" data-theme="b"></div>'
+           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span>修改</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="giftpoint" data-id="' + response.GiftPoint[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
            }
            }
            if (html != '') {
@@ -393,7 +409,7 @@
            $.fn.slider();
            }
            else {
-           $('#dvPublishedProduct').html('<p>No record found!');
+               $('#dvPublishedProduct').html('<p>没有找到记录!');
            }
            });
  }
@@ -412,7 +428,7 @@
                 
                 WMT.jqXHR(ajaxcallobj, function (response) {
                           if (response.success > 0) {
-                          $.dynamicSuccess_popup('<p>Product deleted succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                              $.dynamicSuccess_popup('<p>产品成功地删除.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                           $this.parent().closest('div.points-main').remove();
                           }
                           });
@@ -487,10 +503,10 @@
            $this.parents('div.points-main').find('span#spnDiscount').html(discount);
            $this.parents('div.points-main').find('span#spnGifPoint').html(giftPoint);
            switchToSpan($this);
-           $.dynamicSuccess_popup('<p>Product detail Updated succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+           $.dynamicSuccess_popup('<p>产品细节更新成功地.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
            }
            else {
-           $.dynamic_popup('<p>Error.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+               $.dynamic_popup('<p>错误.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
            }
            });
  

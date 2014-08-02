@@ -31,6 +31,7 @@ var WMT = myStore = membership = QRScan = $.fn;
                     return Callback(data);
                 },
                 error: function (error) {
+
                     alert(error.status + "<-and-> " + error.statusText);
                 }
             });

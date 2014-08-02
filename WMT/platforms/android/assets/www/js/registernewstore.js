@@ -5,7 +5,10 @@
     var regObj = {};
     var addressObj = {};
     $(document).on('submit', '#frmStep1', function () {
-
+        if (!$('#agreement').is(":checked")) {
+            $.dynamic_popup(' <p>选择 会员 协议.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+            return;
+        }
         var MobileNo = $.trim($('#txtMobileNumber').val());
         var Email = $.trim($('#txtEmailAddress').val());
         var ajaxcallobj = {
@@ -40,7 +43,7 @@
         regObj.Industrylevel1 = $('#selectIndustrylevel1').val();
         regObj.Industrylevel2 = $('#selectIndustrylevel2').val();
         regObj.Industrylevel3 = $('#selectIndustrylevel3').val();
-        regObj.Type = $('#sltIndustryType').val();
+        regObj.Type = "public";
         $.mobile.navigate("#wstep4");
     });
 
@@ -87,3 +90,7 @@
     });
 
 })(jQuery)
+
+$('#txtStartNow').click(function () {
+    $.mobile.navigate("#dvStore");
+});

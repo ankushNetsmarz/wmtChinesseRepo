@@ -1,4 +1,4 @@
-objlocalStorage.Store_ID = 0;
+﻿objlocalStorage.Store_ID = 0;
 (function ($) {
 
 
@@ -30,8 +30,10 @@ objlocalStorage.Store_ID = 0;
                     window.localStorage.setItem("username", '');
                     window.localStorage.setItem("pwd", '');
                 }
-             
+                GetIndustryInformation();
                 $.mobile.navigate("#dvStore");
+
+                
             }
             else {
                 $.dynamic_popup('<p>Wrong user name or password.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
@@ -78,7 +80,7 @@ objlocalStorage.Store_ID = 0;
         WMT.jqXHR(ajaxcallobj, function (response) {
             if (response.success > 0) {
                 $('#frmForgetPassword')[0].reset();
-                $.dynamicSuccess_popup(' <p>We have sent you a new password on your email.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                $.dynamicSuccess_popup(' <p>我们已经向您发出的电子邮件的新密码.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
             }
         });
     });
@@ -90,7 +92,9 @@ objlocalStorage.Store_ID = 0;
 
     /* logout event */
     $('.aLogout').on("click", function () {      
-        
+        $('#abl_pnt').html('');
+        $('#str_pnt').html('');
+        $('#wmt_pnt').html('');
         if (RememberMe) {
             window.localStorage.setItem("username", window.localStorage.getItem("username"));
             window.localStorage.setItem("pwd", window.localStorage.getItem("pwd"));
@@ -120,3 +124,22 @@ objlocalStorage.Store_ID = 0;
     });
 
 })(jQuery)
+
+
+function GetIndustryInformation() {
+    var ajaxcallobj = {
+        url: "getindustry",
+        data: { language: 'c' }
+    }
+
+    WMT.jqXHR(ajaxcallobj, function (response) {
+
+        if (response.length > 0) {
+
+            $('#sltIndustryEdit1').html(' <option value="' + response[0].industryNameChinese + '">' + response[0].industryNameChinese + '</option> <option value="' + response[1].industryNameChinese + '">' + response[1].industryNameChinese + '</option><option value="' + response[2].industryNameChinese + '">' + response[2].industryNameChinese + '</option><option value="' + response[3].industryNameChinese + '">' + response[3].industryNameChinese + '</option>');
+            $('#sltIndustryEdit2').html(' <option value="' + response[0].industryNameChinese + '">' + response[0].industryNameChinese + '</option> <option value="' + response[1].industryNameChinese + '">' + response[1].industryNameChinese + '</option><option value="' + response[2].industryNameChinese + '">' + response[2].industryNameChinese + '</option><option value="' + response[3].industryNameChinese + '">' + response[3].industryNameChinese + '</option>');
+            $('#sltIndustryEdit3').html(' <option value="' + response[0].industryNameChinese + '">' + response[0].industryNameChinese + '</option> <option value="' + response[1].industryNameChinese + '">' + response[1].industryNameChinese + '</option><option value="' + response[2].industryNameChinese + '">' + response[2].industryNameChinese + '</option><option value="' + response[3].industryNameChinese + '">' + response[3].industryNameChinese + '</option>');
+
+        }
+    });
+}

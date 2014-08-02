@@ -1,4 +1,4 @@
-
+﻿
 var imageByte;
 var imageDataObject='';
 var xx;
@@ -19,7 +19,8 @@ function onPhotoDataSuccess(imageData) {
 }
 
 function onFail() {
-    alert('Failed because: ' + message);
+   // alert('Failed because: ' + message);
+      $.dynamic_popup('<p>取消扫描</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
 }
 
 function capturePhotoLibrary(x) {
@@ -70,7 +71,7 @@ function onSuccess(imageData) {
     }
     catch(e)
     {
-        alert(e);
+       // alert(e);
     }
     
     //    alert( window.localStorage.getItem("imageData"));
@@ -91,30 +92,46 @@ function getPhoto(imageData) {
         }
         else
         {
+           // alert(this.result);
             // $.mobile.navigate('#dvScanMemberShip');
-            GetPoints(result);
+          
+            GetPoints(this.result);
         }
     };
     qrcode.decode("data:image/jpeg;base64," + imageData);
 }
 
 function onFail(message) {
-    alert('Failed because: ' + message);
+   // alert('Failed because: ' + message);
+      $.dynamic_popup('<p>取消扫描</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
 }
+
 
 function GetPoints(x) {
     var code = x
     var ajaxcallobj = {
     url: 'getmembershippoints',
-    data: { qr_code: code }
+    data: {
+    qr_code: code,
+    store_id: objlocalStorage.Store_ID
+    }
     }
     
     WMT.jqXHR(ajaxcallobj, function (response) {
               if (response != undefined && response != null) {
-              $('#abl_pnt').html(response[0].availPoints);
-              $('#str_pnt').html(response[0].storePoints);
-              $('#wmt_pnt').html(response[0].wmtPoints);
+              //            $('#abl_pnt').html(response[0].availPoints);
+              //            $('#str_pnt').html(response[0].storePoints);
+              //            $('#wmt_pnt').html(response[0].wmtPoints);
               
+              $('#abl_pnt').html(response[0].wmtAvailablePoints);
+              $('#str_pnt').html(response[0].storePoints);
+              $('#wmt_pnt').html(response[0].wmtTotalPoint);
+              
+              }
+              else {
+                  $.dynamicSuccess_popup(' <p>会员未注册...</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+
+
               }
               });
 }
