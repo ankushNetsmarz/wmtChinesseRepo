@@ -69,43 +69,43 @@ var pinentered = 0;
                 }
                 }
                 WMT.jqXHR(ajaxcallobj, function (response) {
-                    $('#change_password').html('******');
-                    $('#Publish_Password').html('******');
-                    if (response.success > 0) {
-                        if (Publishpinfor == "Password") {
-                            ChangePassword();
-                            $.mobile.navigate('#dvStore');
-                        }
-                        else if (Publishpinfor == "Store") {
-                            savestoreinformation();
-                            $.mobile.navigate('#dvStore');
-
-                        }
-                        else if (Publishpinfor == "Industries") {
-
-                            saveindustriesinformation();
-                            $.mobile.navigate('#dvStore');
-
-                        }
-                        else if (Publishpinfor == "PublishPassword") {
-
-                            ChangePublishPassword();
-                            $.mobile.navigate('#dvStore');
-
-                        }
-                        else {
-                            $('#frmPublishPin')[0].reset();
-                            $.mobile.navigate('#dvPublishInfo');
-                        }
-                    }
-                    else {
-                        $.dynamic_popup(' <p>发布无效密码。</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
-                        pinentered = parseInt(pinentered) + 1;
-                        if (pinentered == 3) {
-                            pinentered = 0;
-                            $.mobile.navigate('#login');
-                        }
-                    }
+                          $('#change_password').html('******');
+                          $('#Publish_Password').html('******');
+                          if (response.success > 0) {
+                          if (Publishpinfor == "Password") {
+                          ChangePassword();
+                          $.mobile.navigate('#dvStore');
+                          }
+                          else if (Publishpinfor == "Store") {
+                          savestoreinformation();
+                          $.mobile.navigate('#dvStore');
+                          
+                          }
+                          else if (Publishpinfor == "Industries") {
+                          
+                          saveindustriesinformation();
+                          $.mobile.navigate('#dvStore');
+                          
+                          }
+                          else if (Publishpinfor == "PublishPassword") {
+                          
+                          ChangePublishPassword();
+                          $.mobile.navigate('#dvStore');
+                          
+                          }
+                          else {
+                          $('#frmPublishPin')[0].reset();
+                          $.mobile.navigate('#dvPublishInfo');
+                          }
+                          }
+                          else {
+                          $.dynamic_popup(' <p>发布无效密码。</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                          pinentered = parseInt(pinentered) + 1;
+                          if (pinentered == 3) {
+                          pinentered = 0;
+                          $.mobile.navigate('#login');
+                          }
+                          }
                           });
                 
                 });
@@ -160,16 +160,16 @@ var pinentered = 0;
                           });
                 }
                 else {
-                    $.dynamic_popup('<p>您可以上传仅5图片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                $.dynamic_popup('<p>您可以上传仅5图片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                 }
                 }
                 else {
-                    $.dynamic_popup(' <p>产品信息应该只包含最多 4000 字.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                $.dynamic_popup(' <p>产品信息应该只包含最多 4000 字.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                 }
                 }
                 else {
                 
-                    $.dynamic_popup('<p>影像不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                $.dynamic_popup('<p>影像不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                 
                 }
                 
@@ -187,9 +187,9 @@ var pinentered = 0;
                 
                 WMT.jqXHR(ajaxcallobj, function (response) {
                           if (response.success > 0) {
-                              membershipDiscount = discount;
-                              $('#dis_rte').html(membershipDiscount);
-                              $.dynamicSuccess_popup('<p>发布会员折扣成功地.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                          membershipDiscount = discount;
+                          $('#dis_rte').html(membershipDiscount);
+                          $.dynamicSuccess_popup('<p>发布会员折扣成功地.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                           }
                           });
                 
@@ -221,18 +221,18 @@ var pinentered = 0;
                 
                 }
                 else {
-                    $.dynamic_popup('<p>您可以上传仅5图片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                $.dynamic_popup('<p>您可以上传仅5图片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                 }
-            }
-            else {
+                }
+                else {
                 $.dynamic_popup(' <p>产品信息应该只包含最多 4000 字.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
-            }
-        }
-        else {
-
-            $.dynamic_popup('<p>影像不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
-
-        }
+                }
+                }
+                else {
+                
+                $.dynamic_popup('<p>影像不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                
+                }
                 
                 });
  
@@ -261,18 +261,18 @@ var pinentered = 0;
                           });
                 }
                 else {
-                    $.dynamic_popup('<p>您可以上传仅5图片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                $.dynamic_popup('<p>您可以上传仅5图片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                 }
-            }
-            else {
+                }
+                else {
                 $.dynamic_popup(' <p>产品信息应该只包含最多 4000 字.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
-            }
-        }
-        else {
-
-            $.dynamic_popup('<p>影像不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
-
-        }
+                }
+                }
+                else {
+                
+                $.dynamic_popup('<p>影像不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                
+                }
                 });
  
  
@@ -301,18 +301,18 @@ var pinentered = 0;
                           
                           });
                 } else {
-                    $.dynamic_popup('<p>您可以上传仅5图片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                $.dynamic_popup('<p>您可以上传仅5图片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                 }
-            }
-            else {
+                }
+                else {
                 $.dynamic_popup(' <p>产品信息应该只包含最多 4000 字.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
-            }
-        }
-        else {
-
-            $.dynamic_popup('<p>影像不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
-
-        }
+                }
+                }
+                else {
+                
+                $.dynamic_popup('<p>影像不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                
+                }
                 
                 });
  
@@ -409,7 +409,7 @@ var pinentered = 0;
            $.fn.slider();
            }
            else {
-               $('#dvPublishedProduct').html('<p>没有找到记录!');
+           $('#dvPublishedProduct').html('<p>没有找到记录!');
            }
            });
  }
@@ -428,7 +428,7 @@ var pinentered = 0;
                 
                 WMT.jqXHR(ajaxcallobj, function (response) {
                           if (response.success > 0) {
-                              $.dynamicSuccess_popup('<p>产品成功地删除.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                          $.dynamicSuccess_popup('<p>产品成功地删除.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
                           $this.parent().closest('div.points-main').remove();
                           }
                           });
@@ -456,7 +456,7 @@ var pinentered = 0;
  $('div#dvPublishedProduct').find('input.clsShow').removeClass('clsShow').addClass('clsHide');
  
  
- $('div#dvPublishedProduct').find('div.ui-btn-inline').find('span').html('Modify');
+ $('div#dvPublishedProduct').find('div.ui-btn-inline').find('span').html('修改');
  $('div#dvPublishedProduct').find('input[type=button]').removeClass('btnUpdate').addClass('btnEdit');
  }
  
@@ -466,7 +466,7 @@ var pinentered = 0;
  
  obj.parents('div.points-main').find('input.clsHide').removeClass('clsHide').addClass('clsShow');
  
- obj.parent('div.ui-btn-inline').find('span').html('Save');
+ obj.parent('div.ui-btn-inline').find('span').html('保存');
  obj.parent('div.ui-btn-inline').find('input[type=button]').removeClass('btnEdit').addClass('btnUpdate');
  }
  
@@ -476,7 +476,7 @@ var pinentered = 0;
  
  /******************************* Update publishd information *************************************/
  var $this;
- $(document).on('click', '.btnUpdate', function () {
+ $(document).on('click', '.btnUpdate', function () {   
                 $this = $(this);
                 var type = $(this).attr('data-type');
                 var info = $(this).parents('div.points-main').find('textarea#ProductInfroduction').val();
@@ -506,7 +506,7 @@ var pinentered = 0;
            $.dynamicSuccess_popup('<p>产品细节更新成功地.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
            }
            else {
-               $.dynamic_popup('<p>错误.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+           $.dynamic_popup('<p>错误.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
            }
            });
  
@@ -538,16 +538,16 @@ var pinentered = 0;
                                 }
                                 });
  }
-    /*************** Check Publish Pin ***********************/
+ /*************** Check Publish Pin ***********************/
  $('.Publish_screen').click(function () {
-     if (objlocalStorage.Publish_Pin != null && objlocalStorage.Publish_Pin != undefined && $navTo != "#dvViewPublishedInfo" && objlocalStorage.Publish_Pin != "") {
-         $.mobile.navigate('#dvPublishPin');
-     }
-     else {
-         $.mobile.navigate('#dvPublishInfo');
-     }
-
- });
-
-    /********************************************************/
+                            if (objlocalStorage.Publish_Pin != null && objlocalStorage.Publish_Pin != undefined && $navTo != "#dvViewPublishedInfo" && objlocalStorage.Publish_Pin != "") {
+                            $.mobile.navigate('#dvPublishPin');
+                            }
+                            else {
+                            $.mobile.navigate('#dvPublishInfo');
+                            }
+                            
+                            });
+ 
+ /********************************************************/
  })(jQuery)

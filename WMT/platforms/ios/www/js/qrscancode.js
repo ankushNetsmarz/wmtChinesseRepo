@@ -10,6 +10,8 @@ var memberid = 0;
 
 		
 		    if (result.text.length > 0) {
+                                           memberid = result.text;
+                                           memberselected = true;
 		        GetPoints(result.text);
 		    }
 		    else {
@@ -40,7 +42,10 @@ var memberid = 0;
                    
           //  $.mobile.navigate('#dvScanMemberShip');
                     if (result.text.length > 0) {
+                                            memberid = result.text;
+                                            memberselected = true;
                         GetPoints(result.text);
+                                            
                     }
                     else {
                         $.dynamicSuccess_popup(' <p>扫描失败：' + error + '</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
@@ -106,7 +111,7 @@ function GetScanData() {
         data: { store_id: objlocalStorage.Store_ID }
     }
     WMT.jqXHR(ajaxcallgoodobj, function (response) {
-
+       
         var pointhtml = '';
         if (response.length != 0) {
             if (response != undefined && response != null) {
@@ -130,13 +135,14 @@ function GetScanData() {
         data: { store_id: objlocalStorage.Store_ID }
     }
     WMT.jqXHR(ajaxcallSaleobj, function (response) {
-
+        $('#MemberDiscount').html('<div class="div_mbrdis"><input id="chkMbr_dis"  type="checkbox" ></div><div class="mbr_disp">成员折扣<span id="dis_rte"> 0 </span>%</div> <div class="cus_clr"></div>');
+        
         var salehtml = "";
         if (response.length != 0) {
             if (response != undefined && response != null) {
                 for (var i = 0 ; i < response.length; i++) {
                   
-                    var item = response[i].Introduction.substring(0, 8) + '...'
+                    var item = response[i].introduction.substring(0, 8) + '...'
                     salehtml += '<div class="div_itmdis"><input  type="checkbox" style="margin-left:10px;"> </div><div class="Cus_dnt">Discount Item - ' + item + ' </div>'
                     salehtml += ' <div class="cus_clr"></div>'
                 }
@@ -192,14 +198,14 @@ $(document).on('click', '.Gift_Exchange', function () {
         var point = $(this).attr('giftpoint');
         var StoreId = $(this).attr('storeid');
         var ProductID = $(this).attr('ProductID');
-        var memberpoint = $('#wmt_pnt').html();
+        var memberpoint = $('#abl_pnt').html();
         if (parseInt(point) <= parseInt(memberpoint)) {
             $('#gift_point').html(point);
 
             var multiplier = $('#gift-multiplier').html();
             var gifttotal = point * multiplier;
             $('#gift_Total').html(gifttotal);
-            $('#Exchange_point').attr({ 'storeid': StoreId, 'ProductID': ProductID, 'memberid': memberid });
+            $('#Exchange_point').attr({ 'storeid': StoreId, 'ProductID': ProductID, 'memberid': memberid, 'giftpoint': point });
             $.mobile.navigate('#dvExchange');
         }
         else {
@@ -248,7 +254,15 @@ $('#plus').click(function () {
     var multiplier = $('#gift-multiplier').html();
     var gifttotal = point * multiplier;
 
-    $('#gift_Total').html(gifttotal);
+    var memberpoint = $('#abl_pnt').html();
+    if (memberpoint >= parseInt(gifttotal)) {
+        $('#gift_Total').html(gifttotal);
+
+    }
+    else {
+        $('#gift-multiplier').html(parseInt(multiplier) - 1)
+        $.dynamic_popup('<p>你没有足够的点来购买更多.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+    }
 
 
 })
@@ -300,9 +314,6 @@ function GetPoints(x) {
 
     WMT.jqXHR(ajaxcallobj, function (response) {
         if (response != undefined && response != null) {
-//            $('#abl_pnt').html(response[0].availPoints);
-//            $('#str_pnt').html(response[0].storePoints);
-//            $('#wmt_pnt').html(response[0].wmtPoints);
               $('#abl_pnt').html(response[0].wmtAvailablePoints);
               $('#str_pnt').html(response[0].storePoints);
               $('#wmt_pnt').html(response[0].wmtTotalPoint);
@@ -319,9 +330,9 @@ function GetPoints(x) {
 $('#Exchange_point').click(function () {
     var point = $(this).attr('giftpoint');
     var StoreId = $(this).attr('storeid');
+    var multiplier = $('#gift-multiplier').html();
+    var totalpoint = parseInt(point) * parseInt(multiplier);
     var ProductID = $(this).attr('ProductID');
-    var amount = $('#gift_Total').html();
-
     var ajaxcallobj = {
         url: "exchangepoint",
         data: {
@@ -329,13 +340,16 @@ $('#Exchange_point').click(function () {
             member_id: memberid,
             p_id: ProductID,
             type: 2,
-            amount: amount
+            amount: totalpoint
         }
     }
     WMT.jqXHR(ajaxcallobj, function (response) {
         if (response != undefined && response != null) {
-            $('#wmt_pnt').html(response.wmtpoint);
-            $.mobile.navigate("#dvQRCode");
+            $('#abl_pnt').html(response.wmtpoint);
+            //$.mobile.navigate("#dvQRCode");
+            $('#total_cost').val('');
+            $('#net_cost').val('');
+            $.dynamicSuccess_popup(' <p>交易所是全成.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">行</a>');
 
         }
 
@@ -346,3 +360,51 @@ $('#Exchange_point').click(function () {
 
 
 /*******************************************************************************************************/
+
+/************************************** Show the QRScan Page *****************************************************************/
+
+$(document).on('click', '#OK_Exchange', function () {
+   // $.mobile.navigate("#dvQRCode");
+});
+
+/*****************************************************************************************************************************/
+
+/************************************** Save the Points on Ok click *****************************************************************/
+
+$(document).on('click', '#txtOK', function () {
+    var Point = $.trim($('#net_cost').val());
+    if ($('#wmt_pnt').html() == "") {
+        $.dynamicSuccess_popup(' <p>点击其中前三名按钮任何一个输入会员信息.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">行</a>');
+        return;
+    }
+    if (Point == '' || Point == '0') {
+        $.dynamicSuccess_popup(' <p>量不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">行</a>');
+        return;
+    }
+
+    var ajaxcallobj = {
+        url: "wmtmemberpoints",
+        data: {
+            store_id: objlocalStorage.Store_ID,
+            member_id: memberid,
+            points: Point
+        }
+    }
+    WMT.jqXHR(ajaxcallobj, function (response) {
+
+        if (response != undefined && response != null) {
+            $('#total_cost').val('');
+            $('#net_cost').val('');
+            $('#wmt_pnt').html(response[0].wmtTotalPoint);
+            $('#abl_pnt').html(response[0].wmtAvailablePoints);
+            
+            $.dynamicSuccess_popup(' <p>信息保存.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">行</a>');
+             
+
+        }
+
+    });
+
+});
+
+/*****************************************************************************************************************************/
