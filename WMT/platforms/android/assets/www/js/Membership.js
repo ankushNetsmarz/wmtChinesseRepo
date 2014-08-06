@@ -6,66 +6,65 @@
 
 /*********************************fetch Memeber Detail *************************************/
 
+    $(document).on("click", ".txtmemberid", function () {
+      
+    
+        var memberid = $(this).attr('member_id');
+        var ajaxcallobj = {
+            url: 'getsinglememberdiscount',
+            data: {
+                member_id: memberid,
+                store_id: objlocalStorage.Store_ID
+            }
+        }
 
-$(document).on("click", ".txtmemberid", function () {
-               
-               
-               var memberid = $(this).attr('member_id');
-               var ajaxcallobj = {
-               url: 'getsinglememberdiscount',
-               data: {
-               member_id: memberid,
-               store_id: objlocalStorage.Store_ID
-               }
-               }
-               
-               WMT.jqXHR(ajaxcallobj, function (response) {
-                         
-                         if (response != undefined && response != null) {
-                         
-                         var memberhtml = ' <div class="remember_div"> <div class="WMT-points-member">'
-                         
-                         memberhtml += '<div class="wmt-left avtar">   <img src="' + response[0].memberPicturePath + '" alt=""> </div>'
-                         memberhtml += '<div class="wmt-right"><div class="wmt-hdeading-memb"><h2>名称: ' + response[0].memberFullName + 'T</h2></div>'
-                         memberhtml += '<div class="wmt-hdeading-memb">   <p>总积分: </p>  <span>' + response[0].wmtTotalPoint + '</span> </div>'
-                         memberhtml += '<div class="wmt-hdeading-memb">  <p>等级： </p>  <span>' + response[0].gradeName + '</span> </div>'
-                         memberhtml += '<div class="wmt-hdeading-memb"> <p>收到的礼品： </p> <span>' + response[0].wmtTotalPoint + '</span>'
-                         memberhtml += '</div> </div>  </div><div class="clr"></div></div>'
-                         memberhtml += '<div class="points-main-member">'
-                         memberhtml += '<div  class="mbr_dtl">日期</div><div  class="mbr_dtl">商户</div>'
-                         memberhtml += '<div  class="mbr_dtl">消费</div><div  class="mbr_dtl">折扣</div>'
-                         memberhtml += '<div class="clr"></div>'
-                         for (var i = 0; i < response.length; i++) {
-                         if (response[i].shopDate != null)
-                         {
-                         var dte = response[i].shopDate.split(' ')
-                         dte = dte[0].replace('-', '.');
-                         dte = dte.replace('-', '.');
-                         }
-                         var shopDate = response[i].shopDate == null ? '&nbsp ' : response[i].shopDate;
-                         var storeID = response[i].storeID == null ? ' &nbsp' : response[i].storeID;
-                         var originalCost = response[i].originalCost == null ? '&nbsp ' : response[i].originalCost;
-                         var discountRatio = response[i].discountRatio == null ? ' &nbsp' : response[i].discountRatio;
-                         memberhtml += '<div  class="mbr_dtl">' + shopDate + '</div><div  class="mbr_dtl">' + storeID + '</div>'
-                         memberhtml += '<div  class="mbr_dtl">' + originalCost + '</div><div  class="mbr_dtl">' + discountRatio + '</div>'
-                         memberhtml += '<div class="clr"></div>'
-                         }
-                         memberhtml += '</div>'
-                         $('.application_membersdetail').html(memberhtml);
-                         console.log(response[0].gradeID);
-                         $.mobile.navigate("#dvMemberDetail");
-                         }
-                         else {
-                         
-                         $.dynamicSuccess_popup(' <p>详细信息不可用</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
-                         
-                         }
-                         });
-               
-               
-               
-               
-               })
+        WMT.jqXHR(ajaxcallobj, function (response) {
+
+            if (response != undefined && response != null) {
+
+                var memberhtml = ' <div class="remember_div"> <div class="WMT-points-member">'
+
+                memberhtml += '<div class="wmt-left avtar">   <img src="' + response[0].memberPicturePath + '" alt=""> </div>'
+                memberhtml += '<div class="wmt-right"><div class="wmt-hdeading-memb"><h2>名称: ' + response[0].memberFullName + 'T</h2></div>'
+                memberhtml += '<div class="wmt-hdeading-memb">   <p>总积分: </p>  <span>' + response[0].wmtTotalPoint + '</span> </div>'
+                memberhtml += '<div class="wmt-hdeading-memb">  <p>等级： </p>  <span>' + response[0].gradeName + '</span> </div>'
+                memberhtml += '<div class="wmt-hdeading-memb"> <p>收到的礼品： </p> <span>' + response[0].wmtTotalPoint + '</span>'
+                memberhtml += '</div> </div>  </div><div class="clr"></div></div>'
+                memberhtml += '<div class="points-main-member">'
+                memberhtml += '<div  class="mbr_dtl">日期</div><div  class="mbr_dtl">商户</div>'
+                memberhtml += '<div  class="mbr_dtl">消费</div><div  class="mbr_dtl">折扣</div>'
+                memberhtml += '<div class="clr"></div>'
+                for (var i = 0; i < response.length; i++) {
+                    if (response[i].shopDate != null)
+                    {
+                    var dte = response[i].shopDate.split(' ')
+                        dte = dte[0].replace('-', '.');
+                    dte = dte.replace('-', '.');
+                }
+                    var shopDate = response[i].shopDate == null ? '&nbsp ' : response[i].shopDate;
+                    var storeID = response[i].storeID == null ? ' &nbsp' : response[i].storeID;
+                    var originalCost = response[i].originalCost == null ? '&nbsp ' : response[i].originalCost;
+                    var discountRatio = response[i].discountRatio == null ? ' &nbsp' : response[i].discountRatio;
+                    memberhtml += '<div  class="mbr_dtl">' + shopDate + '</div><div  class="mbr_dtl">' + storeID + '</div>'
+                    memberhtml += '<div  class="mbr_dtl">' + originalCost + '</div><div  class="mbr_dtl">' + discountRatio + '</div>'
+                    memberhtml += '<div class="clr"></div>'
+                }
+                memberhtml += '</div>'
+                $('.application_membersdetail').html(memberhtml);
+                console.log(response[0].gradeID);
+                $.mobile.navigate("#dvMemberDetail");
+            }
+            else {
+           
+                  $.dynamicSuccess_popup(' <p>详细信息不可用</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+            
+            }
+        });
+
+    
+
+
+    })
 
 /********************************************************************************************/
 
@@ -115,14 +114,14 @@ $(document).on("click", ".txtmemberid", function () {
                         memberhtml += ' <div class="total">总数: <span class="total_point">' + response[1].result[i].wmtTotalPoint + '</span></div>'
                         memberhtml += ' <div class="total">可用: <span>' + response[1].result[i].wmtAvailablePoints + '</span ></div></div></div></div></div>'
                     }
-                    memberhtml += '<div class="loadMember" pageid="1"> 更多会员... </div>'
+                    memberhtml += '<div class="loadMember" pageid="1"> More Member... </div>'
                     $('.Application_members').html(memberhtml);
                  
                     $.mobile.navigate('#dvMemberShipListing');
                 }
             }
             else {
-                nomemberhtml = '<div class="loadMember" > 没有更多的会员... </div>'
+                nomemberhtml = '<div class="loadMember" > No More Member... </div>'
                 $('.Application_members').html(nomemberhtml);
 
                 $.mobile.navigate('#dvMemberShipListing');
@@ -163,7 +162,7 @@ $(document).on("click", ".txtmemberid", function () {
             if (response.length > 0) {
             
                 var url = response[0].employeeAnalysis;
-                 navigator.app.loadUrl(url);
+                   navigator.app.loadUrl(url);
             }
 
         });

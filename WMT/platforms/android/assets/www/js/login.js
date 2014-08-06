@@ -95,6 +95,8 @@
         $('#abl_pnt').html('');
         $('#str_pnt').html('');
         $('#wmt_pnt').html('');
+        $('#total_cost').val('');
+        $('#net_cost').val('');
         if (RememberMe) {
             window.localStorage.setItem("username", window.localStorage.getItem("username"));
             window.localStorage.setItem("pwd", window.localStorage.getItem("pwd"));

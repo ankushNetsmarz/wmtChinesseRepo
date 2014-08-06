@@ -17,8 +17,7 @@ var WMT = myStore = membership = QRScan = $.fn;
             async: true,
             dataType: "json"
         }
-        var settings = $.extend({}, defaults, option);
-        
+        var settings = $.extend({}, defaults, option);     
             $.ajax({
                 type: settings.HttpVerb,
                 url: settings.url =    settings.url = settings.xml == true ? settings.url: mainUrl + settings.url,           
