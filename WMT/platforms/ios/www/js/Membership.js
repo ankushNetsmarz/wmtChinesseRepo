@@ -162,7 +162,7 @@
             if (response.length > 0) {
             
                 var url = response[0].employeeAnalysis;
-                  
+                  window.open(url,'_blank','location=no');
             }
 
         });

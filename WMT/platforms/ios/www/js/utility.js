@@ -16,6 +16,8 @@ $('#dvAgreement').enhanceWithin().popup();
 $('#helpPopup-outside-page').enhanceWithin().popup();
 $("#EnterMemberId").enhanceWithin().popup();
 $("#SortParameter").enhanceWithin().popup();
+$("#SavePhoneNumber").enhanceWithin().popup();
 $(document).on('click', '#callContactManager', function () {
     window.open($(this).prev('a').attr('href'));
+              
 });
