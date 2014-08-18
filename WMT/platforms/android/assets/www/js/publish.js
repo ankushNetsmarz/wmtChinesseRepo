@@ -350,9 +350,9 @@ var pinentered = 0;
            + '<textarea id="ProductInfroduction" class="textarea ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow clsHide">' + response.ProductDiscount[i].introduction + '</textarea></p></div>'
            
            + '<div class="price-yaun"><div class="price-yaun-left"><p>价格: <span id="spnProductPrice" class="clsShow">' + response.ProductDiscount[i].price + '</span>'
-           + '<input type="text" id="ProductPrice" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductDiscount[i].price + '" /><span class="currencyName">Yuan</span></p></div>'
+           + '<input type="text" id="ProductPrice" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductDiscount[i].price + '" /><span class="currencyName">元</span></p></div>'
            
-           + '<div class="price-yaun-left"><p>Discount: <span id="spnDiscount" class="clsShow">' + response.ProductDiscount[i].discount + '</span>'
+           + '<div class="price-yaun-left"><p>折扣: <span id="spnDiscount" class="clsShow">' + response.ProductDiscount[i].discount + '</span>'
            + '<input type="text" id="ProductDiscount" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductDiscount[i].discount + '" /><span class="currencyName">%</span></p></div>'
            + '<p class="price-yaun-left price-yaun-status">状态: <select><option value="Active">活动<option><option value="Finish">毕<option></select></p>'
            
@@ -371,9 +371,9 @@ var pinentered = 0;
            + '<textarea id="ProductInfroduction" class="textarea ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow clsHide">' + response.ProductPromotion[i].introduction + '</textarea></p></div>'
            
            + '<div class="price-yaun"><div class="price-yaun-left"><p>价格: <span id="spnProductPrice" class="clsShow">' + response.ProductPromotion[i].price + '</span>'
-           + '<input type="text" id="ProductPrice" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductPromotion[i].price + '" /><span class="currencyName">Yuan</span></p></div>'
+           + '<input type="text" id="ProductPrice" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductPromotion[i].price + '" /><span class="currencyName">元</span></p></div>'
            
-           + '<div class="price-yaun-left"><p>Discount: <span id="spnDiscount" class="clsShow">' + response.ProductPromotion[i].discount + '</span>'
+           + '<div class="price-yaun-left"><p>折扣: <span id="spnDiscount" class="clsShow">' + response.ProductPromotion[i].discount + '</span>'
            + '<input type="text" id="ProductDiscount" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductPromotion[i].discount + '" /><span class="currencyName">%</span></p></div>'
            + '<p class="price-yaun-left price-yaun-status">状态: <select><option value="Active">活动<option><option value="Finish">毕<option></select></p>'
            
@@ -393,7 +393,7 @@ var pinentered = 0;
            + '<textarea id="ProductInfroduction" class="textarea ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow clsHide">' + response.GiftPoint[i].introduction + '</textarea></p></div>'
            
            + '<div class="price-yaun"><div class="price-yaun-left"><p>价格: <span id="spnProductPrice" class="clsShow">' + response.GiftPoint[i].price + '</span>'
-           + '<input type="text" id="ProductPrice" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.GiftPoint[i].price + '" /><span class="currencyName">Yuan</span></p></div>'
+           + '<input type="text" id="ProductPrice" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.GiftPoint[i].price + '" /><span class="currencyName">元</span></p></div>'
            
            + '<div class="price-yaun-left"><p>礼品点: <span id="spnGifPoint" class="clsShow">' + response.GiftPoint[i].giftPoint + '</span>'
            + '<input type="text" id="ProductGifPoint" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.GiftPoint[i].giftPoint + '" /></p></div>'

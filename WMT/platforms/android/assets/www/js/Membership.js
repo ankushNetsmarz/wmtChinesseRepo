@@ -162,7 +162,8 @@
             if (response.length > 0) {
             
                 var url = response[0].employeeAnalysis;
-                   navigator.app.loadUrl(url);
+                   //navigator.app.loadUrl(url);
+                  window.open(url,'_blank','location=no');
             }
 
         });

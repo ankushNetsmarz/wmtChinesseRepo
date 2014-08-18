@@ -36,7 +36,7 @@
                 
             }
             else {
-                $.dynamic_popup('<p>Wrong user name or password.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                $.dynamic_popup('<p>错误的用户名和密码.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
             }
         });
     });
@@ -86,17 +86,41 @@
     });
 
     $('#btnRegister').on('click', function () {
+        var ajaxcallobj = {
+            url: "getindustry",
+            data: { language: 'c' }
+        }
+
+        WMT.jqXHR(ajaxcallobj, function (response) {
+
+            if (response.length > 0) {
+
+                $('#selectIndustrylevel1').html(' <option value="' + response[0].industryNameChinese + '">' + response[0].industryNameChinese + '</option> <option value="' + response[1].industryNameChinese + '">' + response[1].industryNameChinese + '</option><option value="' + response[2].industryNameChinese + '">' + response[2].industryNameChinese + '</option><option value="' + response[3].industryNameChinese + '">' + response[3].industryNameChinese + '</option>');
+                $('#selectIndustrylevel2').html(' <option value="' + response[0].industryNameChinese + '">' + response[0].industryNameChinese + '</option> <option value="' + response[1].industryNameChinese + '">' + response[1].industryNameChinese + '</option><option value="' + response[2].industryNameChinese + '">' + response[2].industryNameChinese + '</option><option value="' + response[3].industryNameChinese + '">' + response[3].industryNameChinese + '</option>');
+                $('#selectIndustrylevel3').html(' <option value="' + response[0].industryNameChinese + '">' + response[0].industryNameChinese + '</option> <option value="' + response[1].industryNameChinese + '">' + response[1].industryNameChinese + '</option><option value="' + response[2].industryNameChinese + '">' + response[2].industryNameChinese + '</option><option value="' + response[3].industryNameChinese + '">' + response[3].industryNameChinese + '</option>');
+
+            }
+        });
         $.mobile.navigate("#wstep1");
     });
 
 
     /* logout event */
     $('.aLogout').on("click", function () {      
-        $('#abl_pnt').html('');
-        $('#str_pnt').html('');
-        $('#wmt_pnt').html('');
-        $('#total_cost').val('');
-        $('#net_cost').val('');
+        $('#abl_pnt').html(' ');
+        $('#str_pnt').html(' ');
+        $('#wmt_pnt').html(' ');
+        $('#total_cost').val(' ');
+        $('#net_cost').val(' ');
+        $('#storename').html(' ');
+        $('#storeaddresss').html(' ');
+        $('#storeaddresss2').html('');
+        $('#emailaddress').html(' ');
+        $('#storeownername').html(' ');
+        $('#storephone').html(' ');
+        $('#Discount_Item_2').html('');
+        $('#Discount_Item_1').html('');
+        $('#point_div').html('');
         if (RememberMe) {
             window.localStorage.setItem("username", window.localStorage.getItem("username"));
             window.localStorage.setItem("pwd", window.localStorage.getItem("pwd"));

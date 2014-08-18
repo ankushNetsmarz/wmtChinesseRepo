@@ -31,7 +31,8 @@ var WMT = myStore = membership = QRScan = $.fn;
                 },
                 error: function (error) {
 
-                    alert(error.status + "<-and-> " + error.statusText);
+                    $.dynamic_popup('<p>操作失败.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                  
                 }
             });
         

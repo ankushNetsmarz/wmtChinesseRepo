@@ -27,6 +27,15 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener("backbutton", function(e){
+    if($.mobile.activePage.is('#login')){
+        e.preventDefault();
+        navigator.app.exitApp();
+    }
+    else {
+        navigator.app.backHistory()
+    }
+}, false);
     },
     // deviceready Event Handler
     //

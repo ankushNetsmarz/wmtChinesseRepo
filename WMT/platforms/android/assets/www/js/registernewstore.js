@@ -1,4 +1,4 @@
-﻿
+﻿var registerMobileNo = "";
 (function ($) {
 
     var retObj = {};
@@ -10,6 +10,7 @@
             return;
         }
         var MobileNo = $.trim($('#txtMobileNumber').val());
+        registerMobileNo = $.trim($('#txtMobileNumber').val());
         var Email = $.trim($('#txtEmailAddress').val());
         var ajaxcallobj = {
             url: "existuser",
@@ -91,6 +92,12 @@
 
 })(jQuery)
 
+/******* click Start Now *******/
+
 $('#txtStartNow').click(function () {
-    $.mobile.navigate("#dvStore");
+    var password = $.trim($('#txtRegPassword').val());
+    $('#txtUserName').val(registerMobileNo);
+    $('#txtPassword').val(password)
+    $('#frmLogin').submit();
+
 });

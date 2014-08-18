@@ -1,5 +1,6 @@
 ﻿var memberselected = false;
 var memberid = 0;
+var multiplervalue = 1;
 (function ($) {
  
  /* Scan Membership Card function */
@@ -93,7 +94,7 @@ $(document).on('change','#chkMbr_dis',function () {
                });
 
 function GetScanData() {
-   
+    debugger;
     /* Fetch the Good Exchange point. */
     var ajaxcallgoodobj = {
     url: 'inshopgift',
@@ -103,17 +104,20 @@ function GetScanData() {
               
               var pointhtml = '';
               if (response.length != 0) {
-              if (response != undefined && response != null) {
-              pointhtml += '<div class="div_mpnt"><div class="mpnt_lft"><div class="mgn_lft" id="txtGoodsExchange">积分兑换礼品</div></div>'
-              pointhtml += '<div  class="cus_clr"></div></div>'
-              for (var i = 0 ; i < response.length; i++) {
-              var item = response[i].introduction.substring(0, 8) + '...'
-              pointhtml += ' <div class="div_pnt"><div class="pnt_lft"><div class="mgn_lft">' + response[i].giftPoint + ' Points for a ' + item + '</div>'
-              pointhtml += '</div><div class="ptn_rgt"><div class="btn_exge Gift_Exchange" giftpoint=' + response[i].giftPoint + ' storeid=' + response[i].StoreID + ' ProductID=' + response[i].pID + ' > 兑换 </div> </div> <div  class="cus_clr"></div> </div>'
+                  if (response != undefined && response != null) {
+                      pointhtml += '<div class="div_mpnt"><div class="mpnt_lft"><div class="mgn_lft" id="txtGoodsExchange">积分兑换礼品</div></div>'
+                      pointhtml += '<div  class="cus_clr"></div></div>'
+                      for (var i = 0 ; i < response.length; i++) {
+                          var item = response[i].introduction.substring(0, 8) + '...'
+                          pointhtml += ' <div class="div_pnt"><div class="pnt_lft"><div class="mgn_lft">' + response[i].giftPoint + ' Points for a ' + item + '</div>'
+                          pointhtml += '</div><div class="ptn_rgt"><div class="btn_exge Gift_Exchange" giftpoint=' + response[i].giftPoint + ' storeid=' + response[i].StoreID + ' ProductID=' + response[i].pID + ' > 兑换 </div> </div> <div  class="cus_clr"></div> </div>'
+                      }
+
+                  }
+                  $('#point_div').html(pointhtml);
               }
-              
-              }
-              $('#point_div').html(pointhtml);
+              else {
+                  $('#point_div').html(' ');
               }
               
               });
@@ -138,16 +142,24 @@ function GetScanData() {
             }
             $('#Discount_Item_1').html(salehtml);
         }
+        else {
+            $('#Discount_Item_1').html(' ');
+        }
         /* fetch Discount */
         var ajaxcallobj1 = {
             url: 'getmembershipdsicount',
             data: { store_id: objlocalStorage.Store_ID }
         }
         WMT.jqXHR(ajaxcallobj1, function (response) {
-            if (response != undefined && response != null) {
+            if (response.length != 0) {
+                if (response != undefined && response != null) {
 
-                $('#dis_rte').html(response[0].Membership_discount);
+                    $('#dis_rte').html(' ' +response[0].Membership_discount);
 
+                }
+            }
+            else {
+                $('#dis_rte').html(' 0');
             }
         });
 
@@ -161,15 +173,18 @@ function GetScanData() {
     WMT.jqXHR(ajaxcallproductobj, function (response) {
               var producthtml = "";
               if (response.length != 0) {
-              if (response != undefined && response != null) {
-              for (var i = 0 ; i < response.length; i++) {
-              var item = response[i].Introduction.substring(0, 8) + '...'
-              producthtml += ' <div class="div_itmdis"><input  type="checkbox" style="margin-left:10px;"> </div><div class="Cus_dnt">Discount Item - ' + item + ' </div>'
-              producthtml += ' <div class="cus_clr"></div>'
+                  if (response != undefined && response != null) {
+                      for (var i = 0 ; i < response.length; i++) {
+                          var item = response[i].Introduction.substring(0, 8) + '...'
+                          producthtml += ' <div class="div_itmdis"><input  type="checkbox" style="margin-left:10px;"> </div><div class="Cus_dnt">Discount Item - ' + item + ' </div>'
+                          producthtml += ' <div class="cus_clr"></div>'
+                      }
+
+                  }
+                  $('#Discount_Item_2').html(producthtml);
               }
-              
-              }
-              $('#Discount_Item_2').html(producthtml);
+              else {
+                  $('#Discount_Item_2').html(' ');
               }
               });
 }
@@ -197,7 +212,7 @@ $('.click_scan').click(function () {
 /*********************************Navigate to Gift Exchange Screen **************************************/
 $(document).on('click', '.Gift_Exchange', function () {
     if (memberselected) {
-        $('#gift-multiplier').html('1');
+        $('#gift-multiplier').val('1');
         var point = $(this).attr('giftpoint');
         var StoreId = $(this).attr('storeid');
         var ProductID = $(this).attr('ProductID');
@@ -205,10 +220,11 @@ $(document).on('click', '.Gift_Exchange', function () {
         if (parseInt(point) <= parseInt(memberpoint)) {
             $('#gift_point').html(point);
 
-            var multiplier = $('#gift-multiplier').html();
+            var multiplier =  $('#gift-multiplier').val();
             var gifttotal = point * multiplier;
             $('#gift_Total').html(gifttotal);
             $('#Exchange_point').attr({ 'storeid': StoreId, 'ProductID': ProductID, 'memberid': memberid, 'giftpoint': point });
+            $('#Phonebtn').attr({ 'memberid': memberid });
             $.mobile.navigate('#dvExchange');
         }
         else {
@@ -230,18 +246,18 @@ $(document).on('click', '.Gift_Exchange', function () {
 
 /*********************************Click on Minus **************************************/
 $('#minus').click(function () {
-                  
-                  var multiplier = $('#gift-multiplier').html();
-                  if (multiplier != 1) {
-                  $('#gift-multiplier').html(parseInt(multiplier) - 1)
-                  var point = $('#gift_point').html();
-                  var multiplier = $('#gift-multiplier').html();
-                  var gifttotal = point * multiplier;
-                  
-                  $('#gift_Total').html(gifttotal);
-                  }
-                  
-                  })
+
+    var multiplier =  $('#gift-multiplier').val();
+    if (multiplier != 1) {
+        $('#gift-multiplier').val(parseInt(multiplier) - 1)
+        var point = $('#gift_point').html();
+        var multiplier =  $('#gift-multiplier').val();
+        var gifttotal = point * multiplier;
+        multiplervalue = multiplier;
+        $('#gift_Total').html(gifttotal);
+    }
+
+});
 
 
 /*******************************************************************************************************/
@@ -250,20 +266,21 @@ $('#minus').click(function () {
 
 $('#plus').click(function () {
 
-    var multiplier = $('#gift-multiplier').html();
+    var multiplier =  $('#gift-multiplier').val();
 
-    $('#gift-multiplier').html(parseInt(multiplier) + 1)
+    $('#gift-multiplier').val(parseInt(multiplier) + 1)
     var point = $('#gift_point').html();
-    var multiplier = $('#gift-multiplier').html();
+    var multiplier =  $('#gift-multiplier').val();
     var gifttotal = point * multiplier;
 
     var memberpoint = $('#abl_pnt').html();
     if (memberpoint >= parseInt(gifttotal)) {
+        multiplervalue = multiplier;
         $('#gift_Total').html(gifttotal);
 
     }
     else {
-        $('#gift-multiplier').html(parseInt(multiplier) - 1)
+        $('#gift-multiplier').val(parseInt(multiplier) - 1)
         $.dynamic_popup('<p>你没有足够的点来购买更多.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
     }
 
@@ -293,6 +310,7 @@ $('#submitmemberid').click(function () {
                                      $('#abl_pnt').html(response[0].wmtAvailablePoints);
                                      $('#str_pnt').html(response[0].storePoints);
                                      $('#wmt_pnt').html(response[0].wmtTotalPoint);
+                                     $('#Membernumber').html(response[0].memberPhone1);
                                      $('#member_id').val('')
                                      
                                      $.mobile.navigate("#dvQRCode");
@@ -333,7 +351,7 @@ function GetPoints(x) {
 $('#Exchange_point').click(function () {
     var point = $(this).attr('giftpoint');
     var StoreId = $(this).attr('storeid');
-    var multiplier = $('#gift-multiplier').html();
+    var multiplier =  $('#gift-multiplier').val();
     var totalpoint = parseInt(point) * parseInt(multiplier);
     var ProductID = $(this).attr('ProductID');
     var ajaxcallobj = {
@@ -415,3 +433,27 @@ $(document).on('click', '#txtOK', function () {
                });
 
 /*****************************************************************************************************************************/
+
+/********************************************** Change the Multiplier value ****************************************************/
+
+$('#gift-multiplier').keyup(function () {
+    var multiplier = $('#gift-multiplier').val();
+    if (multiplier == 0 || multiplier < 0) {
+        $('#gift-multiplier').val('1');
+    }
+    memberpoint = $('#abl_pnt').html();
+    var point = $('#gift_point').html();
+    var multiplier = $('#gift-multiplier').val();
+    var gifttotal = point * multiplier;
+    if (memberpoint >= parseInt(gifttotal)) {
+        multiplervalue = multiplier;
+        $('#gift_Total').html(gifttotal);
+
+    }
+    else {
+        $('#gift-multiplier').val(multiplervalue);
+        $.dynamic_popup('<p>你没有足够的点来购买更多.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+    }
+});
+
+/********************************************************************************************************************************/
