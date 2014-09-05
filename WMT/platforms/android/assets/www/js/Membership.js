@@ -1,3 +1,4 @@
+var pageid = 1;
 /*********************************fetch Memeber List *************************************/
     $('#txtMembershipManagement1').click(function () {
         GetMembersList(0,0);
@@ -32,7 +33,7 @@
                 memberhtml += '</div> </div>  </div><div class="clr"></div></div>'
                 memberhtml += '<div class="points-main-member">'
                 memberhtml += '<div  class="mbr_dtl">日期</div><div  class="mbr_dtl">商户</div>'
-                memberhtml += '<div  class="mbr_dtl">消费</div><div  class="mbr_dtl">折扣</div>'
+                memberhtml += '<div  class="mbr_dtl">消费</div>'
                 memberhtml += '<div class="clr"></div>'
                 for (var i = 0; i < response.length; i++) {
                     if (response[i].shopDate != null)
@@ -46,7 +47,7 @@
                     var originalCost = response[i].originalCost == null ? '&nbsp ' : response[i].originalCost;
                     var discountRatio = response[i].discountRatio == null ? ' &nbsp' : response[i].discountRatio;
                     memberhtml += '<div  class="mbr_dtl">' + shopDate + '</div><div  class="mbr_dtl">' + storeID + '</div>'
-                    memberhtml += '<div  class="mbr_dtl">' + originalCost + '</div><div  class="mbr_dtl">' + discountRatio + '</div>'
+                    memberhtml += '<div  class="mbr_dtl">' + originalCost + '</div>'
                     memberhtml += '<div class="clr"></div>'
                 }
                 memberhtml += '</div>'
@@ -56,7 +57,7 @@
             }
             else {
            
-                  $.dynamicSuccess_popup(' <p>详细信息不可用</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                  $.dynamicSuccess_popup(' <p>详细信息不可用</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
             
             }
         });
@@ -100,6 +101,7 @@
         }
 
         WMT.jqXHR(ajaxcallobj, function (response) {
+         
             var memberhtml = '';
             if ((response[1].result.length != 0)) {
                 if (response != undefined && response != null) {
@@ -111,17 +113,19 @@
                         memberhtml += '<div class="member-right">'
                         memberhtml += '<p onclick="$.mobile.navigate("#dvMemberDetail");">名称: ' + response[1].result[i].memberFullName + '</p>'
                         memberhtml += ' <div class="memb-total">'
-                        memberhtml += ' <div class="total">总数: <span class="total_point">' + response[1].result[i].wmtTotalPoint + '</span></div>'
-                        memberhtml += ' <div class="total">可用: <span>' + response[1].result[i].wmtAvailablePoints + '</span ></div></div></div></div></div>'
+                        var wmtpoint = response[1].result[i].wmtTotalPoint.substring(0, 2) + "..";
+                        var  Availablepoint = response[1].result[i].wmtAvailablePoints.substring(0,2)+ "..";
+                        memberhtml += ' <div class="total">总数: <span class="total_point">' + wmtpoint + '</span></div>'
+                        memberhtml += ' <div class="total">可用: <span>' + Availablepoint + '</span ></div></div></div></div></div>'
                     }
-                    memberhtml += '<div class="loadMember" pageid="1"> More Member... </div>'
+                    memberhtml += '<div class="loadMember" pageid="' + response[0].page_id + '"> 更多的会员... </div>'
                     $('.Application_members').html(memberhtml);
                  
                     $.mobile.navigate('#dvMemberShipListing');
                 }
             }
             else {
-                nomemberhtml = '<div class="loadMember" > No More Member... </div>'
+                nomemberhtml = '<div class="loadMember" >没有更多的会员...  </div>'
                 $('.Application_members').html(nomemberhtml);
 
                 $.mobile.navigate('#dvMemberShipListing');
@@ -142,7 +146,7 @@
 
 
     $(document).on("click", ".loadMember", function () {
-        var pageid = $(this).attr('pageid');
+        pageid = $(this).attr('pageid');
         var newpageid = parseInt(pageid) + 1;
         console.log(pageid + 'pageid');
         $(this).attr('pageid', newpageid);
@@ -162,8 +166,7 @@
             if (response.length > 0) {
             
                 var url = response[0].employeeAnalysis;
-                   //navigator.app.loadUrl(url);
-                  window.open(url,'_blank','location=no');
+                 navigator.app.loadUrl(url);
             }
 
         });

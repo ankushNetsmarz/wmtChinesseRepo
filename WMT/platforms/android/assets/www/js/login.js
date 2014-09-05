@@ -31,12 +31,15 @@
                     window.localStorage.setItem("pwd", '');
                 }
                 GetIndustryInformation();
-                $.mobile.navigate("#dvStore");
-
+               // $.mobile.navigate("#dvQRCode");
+                GetScanData();
+                GetDiscount();
+               // $.fn.getPublishedInfo();
+                $.mobile.navigate('#dvQRCode');
                 
             }
             else {
-                $.dynamic_popup('<p>错误的用户名和密码.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                $.dynamic_popup('<p>错误的用户名和密码.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
             }
         });
     });
@@ -80,7 +83,7 @@
         WMT.jqXHR(ajaxcallobj, function (response) {
             if (response.success > 0) {
                 $('#frmForgetPassword')[0].reset();
-                $.dynamicSuccess_popup(' <p>我们已经向您发出的电子邮件的新密码.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                $.dynamicSuccess_popup(' <p>我们已经向您发出的电子邮件的新密码.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
             }
         });
     });

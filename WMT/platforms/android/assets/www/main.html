@@ -16,7 +16,31 @@
     <script src="js/jquery.mobile.dynamic.popup.js"></script>
     <script src="js/responsiveslides.min.js"></script>
     <script src="cordova.js"></script>
-   
+    <style>
+        
+        * {
+            
+            -webkit-touch-callout: none;
+            
+            -webkit-user-select: none;
+            
+        }
+    
+    input,
+    
+    textarea {
+        
+        -webkit-touch-callout: auto;
+        
+        -webkit-user-select: auto;
+        
+    }
+    
+    transform: translate3d(0,0,0);
+    
+    -webkit-transform: translate3d(0,0,0);
+    
+        </style>
     <script>
 
         document.addEventListener("deviceready", onDeviceReady, false);
@@ -256,15 +280,12 @@
                     <div class="clr"></div>
                     <label for="selectIndustrylevel1" class="cus_txt_lft">行业：</label>
                     <select name="selectIndustrylevel1" id="selectIndustrylevel1" data-theme="c" data-native-menu="false">
-                      
                     </select>
                     <label for="selectIndustrylevel2"></label>
                     <select name="selectIndustrylevel2" id="selectIndustrylevel2" data-theme="c" data-native-menu="false">
-                      
                     </select>
                     <label for="selectIndustrylevel3"></label>
                     <select name="selectIndustrylevel3" id="selectIndustrylevel3" data-theme="c" data-native-menu="false">
-                      
                     </select>
                     <!--  <label for="selectIndustrylevel1">Type</label>
                                      <select name="sltIndustryType" id="sltIndustryType" data-theme="c" data-native-menu="false">
@@ -410,30 +431,7 @@
 
         <div data-role="content" id="Div2" class="ui-content headerChild">
             <div class="ui-field-contain">
-                <div class="button">
-                    <a>
-                        <div class="btn_cscn" data-theme="a" id="txtScanQRCode" onclick="QRScan.ScanMemberShipCard();">
-                            扫描<br />
-                            会员卡
-                            
-                            
-                        </div>
-                    </a>
-                    <a>
-                        <div class="btn_nscn" data-theme="a" id="txtLoadLocalPicture" onclick="QRScan.LoadPicture();">
-                            本地<br />
-                            照片
-                            
-                        </div>
-                    </a>
-                    <a href="#EnterMemberId" data-rel="popup" data-transition="pop">
-                        <div class="btn_nscn" data-theme="a;">
-                            输入<br />
-                            会员号
-                                
-                        </div>
-                    </a>
-                </div>
+
                 <div class="div_cuspto">
                     <div class="cuspto_lft">
                         <div class="cus_cuspto">
@@ -486,7 +484,29 @@
                         <div class="btn_cok" id="txtOK">确认</div>
                     </div>
                 </div>
-                <div>
+                <div class="button">
+                    <a>
+                        <div class="btn_cscn" data-theme="a" id="txtScanQRCode" onclick="QRScan.ScanMemberShipCard();">
+                            扫描<br />
+                            会员卡
+                            
+                            
+                        </div>
+                    </a>
+                    <a>
+                        <div class="btn_nscn" data-theme="a" id="txtLoadLocalPicture" onclick="QRScan.LoadPicture();">
+                            本地<br />
+                            照片
+                            
+                        </div>
+                    </a>
+                    <a href="#EnterMemberId" data-rel="popup" data-transition="pop">
+                        <div class="btn_nscn" data-theme="a;">
+                            输入<br />
+                            会员号
+                                
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -630,7 +650,7 @@
                     <p class="info">发布信息</p>
                     <div class="business-info publishPusinessinfo">
                         <ul>
-                            <li><a href="javascript:;" navigateto="#dvStoreInformation" class="clsPublisNav" id="txtStoreInformation1">商户信息发布</a></li>
+                            <li class="current"><a href="javascript:;" navigateto="#dvStoreInformation" class="clsPublisNav" id="txtStoreInformation1">商户信息发布</a></li>
                             <li><a href="javascript:;" navigateto="#dvMemberShipDiscount" class="clsPublisNav" id="mbr_dis">设定会员折扣</a></li>
                             <li><a href="javascript:;" navigateto="#dvProductDiscount" class="clsPublisNav" id="txtProductDiscount">设定商品折扣</a></li>
                             <li><a href="javascript:;" navigateto="#dvProductforShortDuration" class="clsPublisNav" id="txtLastMinutesSale">即时秒杀</a></li>
@@ -676,7 +696,7 @@
         </div>
     </div>
     <div data-role="page" id="dvPublishPin">
-        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" id="publishinfotext">
             <h1>发布密码确认</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack17">
                 <img src="css/images/back_icon.png" />
@@ -744,7 +764,6 @@
                 <form id="frmStoreInformation" onsubmit="return false;">
                     <div class="remember_div">
                         <div class="points-main">
-                            <p class="info-user" id="txtUserProductServices">请描述商户的信息与最新活动，这些信息将发到用户手机中。</p>
                             <p class="flright" id="P1">上传图片</p>
 
                             <div class="uploder">
@@ -902,7 +921,7 @@
                 <div class="remember_div">
                     <form id="frmProductDiscount" onsubmit="return false;">
                         <div class="points-main">
-                            <p class="info-user" id="usr_dis">发布会员折扣商品信息</p>
+
                             <p class="flright" id="uld_pic">上传图片</p>
 
 
@@ -935,22 +954,23 @@
 
                             <div class="total-main-org ui-grid-b">
                                 <div class="ui-block-b">
-                                    <p id="txtOrgPrice">原价</p>
+                                    <p id="txtOrgPrice" class="talileft">原价</p>
                                 </div>
-                                <div class="ui-block-b">
+                                <div class="input_outter_div">
                                     <input type="text" class="publish clrPublishedInfo" name="txtPrice" id="txtPrice">
                                 </div>
-                                <div class="ui-block-b currency" id="yuan_unit1">元</div>
+                                <div class="input_mostoutter_div">元</div>
+                                <!--<div class="ui-block-b currency currency_update" id="yuan_unit1">元</div>-->
                             </div>
 
                             <div class="total-main-org ui-grid-b">
                                 <div class="ui-block-b">
-                                    <p id="dis">折扣</p>
+                                    <p id="dis" class="talileft">折扣</p>
                                 </div>
-                                <div class="ui-block-b">
+                                <div class="input_outter_div">
                                     <input type="text" class="publish" name="txtdiscount clrPublishedInfo" id="Text2">
                                 </div>
-                                <div class="ui-block-b currency">%</div>
+                                <div class="input_mostoutter_div">%</div>
                             </div>
                             <div class="clr"></div>
                         </div>
@@ -1012,7 +1032,7 @@
                 <form id="frmProductDuration" onsubmit="return false;">
                     <div class="remember_div">
                         <div class="points-main">
-                            <p class="info-user" id="usr-prdser">发布会员折扣商品信息</p>
+
                             <p class="flright" id="up_pic">上传图片</p>
                             <div class="uploder">
                                 <div class="image-upload">
@@ -1142,7 +1162,6 @@
                 <form id="frmGiftPoint" onsubmit="return false;">
                     <div class="remember_div">
                         <div class="points-main">
-                            <p class="info-user" id="usr_giftpro">顾客到店后赠送或兑换的产品</p>
                             <p class="flright" id="uld_pic1">上传图片</p>
 
                             <div class="uploder">
@@ -1242,7 +1261,7 @@
                 <img src="css/images/back_icon.png" />
                 返回
             </div>
-            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp16">日期</a></div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp16">帮助</a></div>
         </div>
         <div data-role="content" class="ui-content headerChild">
             <div class="ui-field-contain">
@@ -1295,7 +1314,7 @@
 
     <div data-role="page" id="dvMemberShipManagement">
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
-            <h1>会员</h1>
+            <h1>会员管理</h1>
 
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp17">帮助</a></div>
         </div>
@@ -1307,7 +1326,7 @@
                     <div class="clr"></div>
                 </div>
                 <div class="points-main">
-                    <p class="info" id="txtMembershipManagement">会员管理</p>
+                    <!--   <p class="info" id="txtMembershipManagement">会员管理</p>-->
                     <div class="business-info member_info">
                         <ul>
                             <li class="current"><a id="txtMembershipManagement1" href="#" onclick="$.mobile.navigate('#dvMemberShipListing');" class="chge_cls">会员管理</a></li>
@@ -1541,7 +1560,9 @@
                     <div class="avtar bussiness">
                         <img alt="" src="css/images/busines-man.jpg">
                     </div>
-                    <p class="cont-my" id="txtContactSupportManager">联系我的专属客服经理</p>
+                    <p class="cont-my" id="txtContactSupportManager">
+                        <p style="margin-top: 16px; float: left;">联系我的专属客服经理 </p>
+                    </p>
                 </div>
             </div>
 
@@ -1727,13 +1748,35 @@
             <div class="ui-field-contain">
                 <form id="frmSaveStoreChanges" onsubmit="return false;">
                     <div id="dvMystoreInfo">
+                               <div class="member-manage">
+                            <div class="wapper-wrap">
+                                <div class="add">
+                                    <div class="name">
+                                         <p style="padding-top:20px;">
+                                             商店标志:                                             
+                                             </p></div>
+                                    <div id="Div5" class="address">
+                                        <div class="upload">
+                                            <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                                <img alt="Logo" id="StoreLogo" class="clrImages" width="100" height="80" src="css/images/image-uploader.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                       <div class="modyfy-button" style="background: none; border: none; box-shadow: none; ">
+                                           <p style="padding-top:25px;">  <img src="img/save.png"  id="savelogo"/></p>
+
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="member-manage">
                             <div class="wapper-wrap">
                                 <div class="add">
                                     <div class="name">商户名称： </div>
                                     <div id="storename" class="address"></div>
                                     <div class="modyfy-button" style="background: none; border: none; box-shadow: none;">
-                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!-- <input type="button" name="Help" style="display:none;" value="编辑" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1744,7 +1787,8 @@
                                     <div class="name">密码: </div>
                                     <div id="change_password" class="address">******</div>
                                     <div class="modyfy-button" style="background: none; border: none; box-shadow: none;">
-                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!-- <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1755,7 +1799,8 @@
                                     <div class="name">公布密码: </div>
                                     <div id="Publish_Password" class="address">******</div>
                                     <div class="modyfy-button" style="background: none; border: none; box-shadow: none;">
-                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!-- <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1767,7 +1812,8 @@
                                     <div id="storeaddresss" class="address">
                                     </div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!-- <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1779,7 +1825,8 @@
                                     <div id="storeaddresss2" class="address">
                                     </div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!-- <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1791,7 +1838,8 @@
                                     <div class="name">电话：</div>
                                     <div id="storephone" class="address"></div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!--<input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1802,7 +1850,8 @@
                                     <div class="name">电子邮件: </div>
                                     <div id="emailaddress" class="address"></div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!-- <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1814,7 +1863,8 @@
                                     <div class="name">管理者: </div>
                                     <div id="storeownername" class="address"></div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!--  <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1845,14 +1895,14 @@
                         </select>
                         <label class="name" for="sltIndustryEdit2"></label>
                         <select name="sltIndustryEdit2" id="sltIndustryEdit2" data-theme="c" data-native-menu="false">
-                          <!--  <option value="Industrylevel1">工业级1</option>
+                            <!--  <option value="Industrylevel1">工业级1</option>
                             <option value="Industrylevel2">I工业级2</option>
                             <option value="Industrylevel3">I工业级3</option>
                             <option value="Industrylevel4">工业级4</option>-->
                         </select>
                         <label class="name" for="sltIndustryEdit3"></label>
                         <select name="sltIndustryEdit3" id="sltIndustryEdit3" data-theme="c" data-native-menu="false">
-                           <!-- <option value="Industrylevel1">工业级1</option>
+                            <!-- <option value="Industrylevel1">工业级1</option>
                             <option value="Industrylevel2">I工业级2</option>
                             <option value="Industrylevel3">I工业级3</option>
                             <option value="Industrylevel4">工业级4</option>-->
@@ -1870,7 +1920,7 @@
                             </div>
                             <div class="clr"></div>
                         </div>
-                        <div style="margin-bottom: 10px; font-size: 10px; color: red; text-align: center;"><i>版本 1.0</i></div>
+                        <div style="margin-bottom: 10px; font-size: 10px; color: red; text-align: center;"><i>版本 2.0</i></div>
                     </div>
                 </form>
                 <div class="clr"></div>
@@ -1917,11 +1967,11 @@
 
     <div id="helpPopup-outside-page" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
         <!--  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>-->
-        <h3>会员 帮助</h3>
+        <!-- <h3>会员 帮助</h3>-->
         <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
             <div id="helptext">欢迎WMT，此页面将在稍后更新，现在请直接致电您的客户服务！谢谢，WMT队。</div>
         </div>
-        <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" href="#"style="background-color:#bc1616;" >关闭</a>
+        <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" href="#">关闭</a>
     </div>
 
     <!-- Agreement Popup -->
@@ -1930,7 +1980,7 @@
         <!--<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"style="background-color:#bc1616;" >关闭</a>-->
         <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
             <div>欢迎光临WMT，此内容将在以后更新。现在请致电您的客户服务有关的测试协议！</div>
-            <center><a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok"  href="#"style="background-color:#bc1616;" >关闭</a></center>
+            <center><a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok"  href="#" >关闭</a></center>
         </div>
 
     </div>
@@ -1939,7 +1989,7 @@
 
     <div id="dvImageUpload" data-overlay-theme="a" data-theme="b" data-dismissible="true" style="min-width: 250px; max-width: 500px;" data-position-to="window">
 
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"style="background-color:#bc1616;" >关闭</a>
+        <!--<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">关闭</a>-->
         <h3>拍照</h3>
         <div role="main" class="ui-content">
             <input id="btnPickImageCamera" type="button" value="相机拍照" data-theme="a">
@@ -1997,11 +2047,16 @@
                 <div class="cus_pho_lft" id="Membernumber"></div>
                 <div class="cus_pho_rgt">
                     <a href="#SavePhoneNumber" data-rel="popup" data-transition="pop">
-                        <div class="btn_cus_phone" id="Phonebtn">电话 :</div>
+                        <div class="btn_cus_phone" id="Phonebtn">电话</div>
                     </a>
                 </div>
-                <div class="cus_btn_exg">
-                    <div class="btn_cus_Exg" id="Exchange_point">兑换</div>
+                <div class="cus_clr"></div>
+                <div class="wapper-wrap">
+                    <div class="button Exchange_point">
+                        <div class="cus_btn_exg">
+                            <input type="button" class="btn_cus_Exg" data-theme="a" value="兑换" />
+                        </div>
+                    </div>
                 </div>
 
 
@@ -2042,13 +2097,15 @@
     <div id="EnterMemberId" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
 
         <!--<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"style="background-color:#bc1616;" >关闭</a>-->
-        <h3>输入用户名</h3>
-        <div role="main" class="ui-content" style="text-align: left; max-height: 400px;  overflow-x: hidden;">
+        <h3>请输入会员卡号</h3>
+        <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-x: hidden;">
 
-            <input type="text" id="member_id" style="border: solid 2px red" />
-            <div style="width:202px;">            <input type="button" value="行" id="submitmemberid" /></div>
+            <input type="text" id="member_id" style="border: 2px solid red; width: 190px ! important;" />
+            <div style="padding: 0px 7px; width: 93.3%;">
+                <input type="button" value="确定" id="submitmemberid" />
+            </div>
 
-            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" style="width: 170px;background-color:#bc1616;" href="#">关闭</a>
+            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" style="margin-top: 0px; width: 77%;/* padding: 10px 11px;*/ margin-left: 7px; background-color: #bc1616;" href="#">关闭</a>
         </div>
     </div>
 
@@ -2059,20 +2116,21 @@
             <div class="sort_By">排序方式 </div>
             <div id="Sort_name" class="sorttext">名称 </div>
             <div id="Sort_TotalPoint" class="sorttext">总积分</div>
-            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" href="#"style="background-color:#bc1616;" >关闭</a>
+            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" href="#" style="background-color: #bc1616;">关闭</a>
         </div>
     </div>
-
     <!---- Enter Phone Number ----->
     <div id="SavePhoneNumber" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
 
         <!--<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"style="background-color:#bc1616;" >关闭</a>-->
-        <h3>输入用户名</h3>
+        <h3>请输入电话号</h3>
         <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
 
-            <input type="text" id="PhoneNumber" style="border: solid 1px red" />
-            <input type="button" value="行" id="SavePhone" />
-            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" style="width: 170px;background-color:#bc1616;" href="#">关闭</a>
+            <input type="text" id="PhoneNumber" style="border: solid 1px red;  width: 190px ! important;" />
+<div style="padding: 0px 7px; width: 93.3%;">
+            <input type="button" value="确定" id="SavePhone" />
+</div>
+            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" style="margin-top: 0px; width: 77%;/* padding: 10px 11px;*/ margin-left: 7px; background-color: #bc1616;" href="#">关闭</a>
         </div>
     </div>
 
@@ -2100,14 +2158,19 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/utility.js"></script>
 <script type="text/javascript" src="js/formvalidation.js"></script>
+<script type="text/javascript" src="js/publish.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="js/imageCapture.js"></script>
 <script type="text/javascript" src="js/registernewstore.js"></script>
 <script type="text/javascript" src="js/qrscancode.js"></script>
 <script type="text/javascript" src="js/mystore.js"></script>
-<script type="text/javascript" src="js/publish.js"></script>
 <script type="text/javascript" src="js/businessInfo.js"></script>
 <script src="js/GiftExchange.js"></script>
 <script src="js/PhoneNumber.js"></script>
 <script src="js/Membership.js"></script>
+
 </html>
+
+
+
+

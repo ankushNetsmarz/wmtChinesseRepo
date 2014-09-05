@@ -6,7 +6,7 @@
     var addressObj = {};
     $(document).on('submit', '#frmStep1', function () {
         if (!$('#agreement').is(":checked")) {
-            $.dynamic_popup(' <p>选择 会员 协议.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+            $.dynamic_popup(' <p>用户必须接受会员协议才能完成注册！</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
             return;
         }
         var MobileNo = $.trim($('#txtMobileNumber').val());

@@ -19,8 +19,7 @@ function onPhotoDataSuccess(imageData) {
 }
 
 function onFail() {
-   // alert('Failed because: ' + message);
-      $.dynamic_popup('<p>取消扫描</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+      $.dynamic_popup('<p>取消扫描</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
 }
 
 function capturePhotoLibrary(x) {
@@ -71,11 +70,9 @@ function onSuccess(imageData) {
     }
     catch(e)
     {
-       // alert(e);
+   
     }
-    
-    //    alert( window.localStorage.getItem("imageData"));
-    
+      
     //    $("#imageHolder1").attr('src',"http://www.hdnewpictures.com/wp-content/uploads/2014/06/Funny-1.jpg");
     //},5000);
     //
@@ -92,7 +89,7 @@ function getPhoto(imageData) {
         }
         else
         {
-           // alert(this.result);
+        
             // $.mobile.navigate('#dvScanMemberShip');
           
             GetPoints(this.result);
@@ -102,8 +99,8 @@ function getPhoto(imageData) {
 }
 
 function onFail(message) {
-   // alert('Failed because: ' + message);
-      $.dynamic_popup('<p>取消扫描</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+ 
+      $.dynamic_popup('<p>取消扫描</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
 }
 
 
@@ -129,7 +126,7 @@ function GetPoints(x) {
               
               }
               else {
-                  $.dynamicSuccess_popup(' <p>会员未注册...</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                  $.dynamicSuccess_popup(' <p>会员未注册...</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
 
 
               }
