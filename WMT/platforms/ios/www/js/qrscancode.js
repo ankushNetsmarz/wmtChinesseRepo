@@ -16,14 +16,14 @@ var multiplervalue = 1;
                                      GetPoints(result.text);
                                      }
                                      else {
-                                     $.dynamicSuccess_popup(' <p>扫描失败：' + error + '</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                                         $.dynamicSuccess_popup(' <p>扫描失败：' + error + '</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
                                      
                                      }
                                      
                                      
                                      },
                                      function (error) {
-                                     $.dynamicSuccess_popup(' <p>扫描失败：' + error + '</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                                         $.dynamicSuccess_popup(' <p>扫描失败：' + error + '</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
                                      }
                                      );
  }
@@ -49,12 +49,12 @@ var multiplervalue = 1;
                                      
                                      }
                                      else {
-                                     $.dynamicSuccess_popup(' <p>扫描失败：' + error + '</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                                         $.dynamicSuccess_popup(' <p>扫描失败：' + error + '</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
                                      
                                      }
                                      },
                                      function (error) {
-                                     $.dynamicSuccess_popup(' <p>扫描失败：' + error + '</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                                         $.dynamicSuccess_popup(' <p>扫描失败：' + error + '</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
                                      }
                                      );
  }
@@ -94,7 +94,7 @@ $(document).on('change','#chkMbr_dis',function () {
                });
 
 function GetScanData() {
-    debugger;
+
     /* Fetch the Good Exchange point. */
     var ajaxcallgoodobj = {
     url: 'inshopgift',
@@ -109,7 +109,7 @@ function GetScanData() {
                       pointhtml += '<div  class="cus_clr"></div></div>'
                       for (var i = 0 ; i < response.length; i++) {
                           var item = response[i].introduction.substring(0, 8) + '...'
-                          pointhtml += ' <div class="div_pnt"><div class="pnt_lft"><div class="mgn_lft">' + response[i].giftPoint + ' Points for a ' + item + '</div>'
+                          pointhtml += ' <div class="div_pnt"><div class="pnt_lft"><div class="mgn_lft">' + response[i].giftPoint + ' 积分兑换： ' + item + '</div>'
                           pointhtml += '</div><div class="ptn_rgt"><div class="btn_exge Gift_Exchange" giftpoint=' + response[i].giftPoint + ' storeid=' + response[i].StoreID + ' ProductID=' + response[i].pID + ' > 兑换 </div> </div> <div  class="cus_clr"></div> </div>'
                       }
 
@@ -136,7 +136,7 @@ function GetScanData() {
                 for (var i = 0 ; i < response.length; i++) {
 
                     var item = response[i].introduction.substring(0, 8) + '...'
-                    salehtml += '<div class="div_itmdis"><input  type="checkbox" style="margin-left:10px;"> </div><div class="Cus_dnt">Discount Item - ' + item + ' </div>'
+                    salehtml += '<div class="div_itmdis"><input  type="checkbox" style="margin-left:10px;"> </div><div class="Cus_dnt">折扣商品： ' + item + ' </div>'
                     salehtml += ' <div class="cus_clr"></div>'
                 }
             }
@@ -176,7 +176,7 @@ function GetScanData() {
                   if (response != undefined && response != null) {
                       for (var i = 0 ; i < response.length; i++) {
                           var item = response[i].Introduction.substring(0, 8) + '...'
-                          producthtml += ' <div class="div_itmdis"><input  type="checkbox" style="margin-left:10px;"> </div><div class="Cus_dnt">Discount Item - ' + item + ' </div>'
+                          producthtml += ' <div class="div_itmdis"><input  type="checkbox" style="margin-left:10px;"> </div><div class="Cus_dnt">折扣商品： ' + item + ' </div>'
                           producthtml += ' <div class="cus_clr"></div>'
                       }
 
@@ -223,16 +223,16 @@ $(document).on('click', '.Gift_Exchange', function () {
             var multiplier =  $('#gift-multiplier').val();
             var gifttotal = point * multiplier;
             $('#gift_Total').html(gifttotal);
-            $('#Exchange_point').attr({ 'storeid': StoreId, 'ProductID': ProductID, 'memberid': memberid, 'giftpoint': point });
+            $('.Exchange_point').attr({ 'storeid': StoreId, 'ProductID': ProductID, 'memberid': memberid, 'giftpoint': point });
             $('#Phonebtn').attr({ 'memberid': memberid });
             $.mobile.navigate('#dvExchange');
         }
         else {
-            $.dynamic_popup('<p>您没有足够的点。</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+            $.dynamic_popup('<p>您没有足够的点。</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
         }
     }
     else {
-        $.dynamic_popup('<p>  本地照片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+        $.dynamic_popup('<p>  本地照片.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
 
     }
 
@@ -281,7 +281,7 @@ $('#plus').click(function () {
     }
     else {
         $('#gift-multiplier').val(parseInt(multiplier) - 1)
-        $.dynamic_popup('<p>你没有足够的点来购买更多.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+        $.dynamic_popup('<p>你没有足够的点来购买更多.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
     }
 
 
@@ -341,14 +341,14 @@ function GetPoints(x) {
               
               }
               else {
-              $.dynamicSuccess_popup(' <p>会员未注册....</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+                  $.dynamicSuccess_popup(' <p>会员未注册....</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
               
               }
               });
 }
 /********************************* Save Exchange Information ********************************************************/
 
-$('#Exchange_point').click(function () {
+$('.Exchange_point').click(function () {    
     var point = $(this).attr('giftpoint');
     var StoreId = $(this).attr('storeid');
     var multiplier =  $('#gift-multiplier').val();
@@ -372,7 +372,7 @@ $('#Exchange_point').click(function () {
             $('#net_cost').val('');
             $.mobile.navigate("#dvQRCode");
             setTimeout(function () {
-                $.dynamicSuccess_popup(' <p>交换成功.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange1">行</a>');
+                $.dynamicSuccess_popup(' <p>兑换成功.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange1">确定</a>');
                 console.log(scancode);
             }, 2000);
 
@@ -399,11 +399,11 @@ $(document).on('click', '#OK_Exchange', function () {
 $(document).on('click', '#txtOK', function () {
                var Point = $.trim($('#net_cost').val());
                if ($('#wmt_pnt').html() == "") {
-               $.dynamicSuccess_popup(' <p>点击其中前三名按钮任何一个输入会员信息.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">行</a>');
+                   $.dynamicSuccess_popup(' <p>通过单击底部的三个任何一个按钮进入会员资料.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">确定</a>');
                return;
                }
                if (Point == '' || Point == '0') {
-               $.dynamicSuccess_popup(' <p>量不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">行</a>');
+                   $.dynamicSuccess_popup(' <p>量不能为空.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">确定</a>');
                return;
                }
                
@@ -423,7 +423,7 @@ $(document).on('click', '#txtOK', function () {
                          $('#wmt_pnt').html(response[0].wmtTotalPoint);
                          $('#abl_pnt').html(response[0].wmtAvailablePoints);
                          
-                         $.dynamicSuccess_popup(' <p>信息保存.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">行</a>');
+                         $.dynamicSuccess_popup(' <p>购买是成功的</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">确定</a>');
                          
                          
                          }
@@ -452,7 +452,7 @@ $('#gift-multiplier').keyup(function () {
     }
     else {
         $('#gift-multiplier').val(multiplervalue);
-        $.dynamic_popup('<p>你没有足够的点来购买更多.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">行</a>');
+        $.dynamic_popup('<p>你没有足够的点来购买更多.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
     }
 });
 

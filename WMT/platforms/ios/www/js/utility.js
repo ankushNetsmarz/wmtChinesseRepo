@@ -1,6 +1,7 @@
 ﻿var objlocalStorage = {}; /* Global Local storage array object */
 var RememberMe = false;
-$.mobile.defaultPageTransition = 'slide'; /* Set default transition for all pages */
+//$.mobile.defaultPageTransition = 'slide'; /* Set default transition for all pages */
+$.mobile.defaultPageTransition = 'none';
 //$.mobile.page.prototype.options.domCache = true;
 var imageDataObject = '';
 $('.clsback').on('click', function () {
@@ -19,5 +20,4 @@ $("#SortParameter").enhanceWithin().popup();
 $("#SavePhoneNumber").enhanceWithin().popup();
 $(document).on('click', '#callContactManager', function () {
     window.open($(this).prev('a').attr('href'));
-              
 });

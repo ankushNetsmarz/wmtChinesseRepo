@@ -87,7 +87,7 @@ body{font-family:Microsoft YaHei;}
 
 .remember_div {
     width: 100%;
-    padding-top: 10px;
+    /*padding-top: 10px;*/
 }
 
 .welcome {
@@ -398,7 +398,7 @@ a {
 .top_bar-member {
     background-color: #ff8032;
     font-size: 16px;
-    height: 45px;
+    height: 26px;
     padding-top: 8px;
     color: #fff;
     -webkit-box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.61);
@@ -559,6 +559,7 @@ a {
     }
 
 .points-main-member {
+    height:170px;
     background-color: #FFFFFF;
     border: 1px solid #A0A0A0;
     float: left;
@@ -715,7 +716,7 @@ label {
         .business-info ul li {
             border-bottom: 1px solid #D5D5D5;
             float: left;
-            line-height: 35px;
+            line-height: 70px;
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -756,7 +757,7 @@ label {
     }
 
 .modify-btn {
-    background-color: #FF8032;
+    /*background-color: #FF8032;*/
     border: medium none;
     border-radius: 3px;
     color: #FFFFFF;
@@ -786,7 +787,7 @@ textarea {
     /*float: left;*/
 }
 
-.top_bar-btm{ height:75px; border-top:1px solid #b00e0e;border-bottom:1px solid #bd342d; text-align:center; color:#FFF;  background: #c41010; /* Old browsers */
+.top_bar-btm{font-weight:normal; height:75px; border-top:1px solid #b00e0e;border-bottom:1px solid #bd342d; text-align:center; color:#FFF;  background: #c41010; /* Old browsers */
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */
 background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M0MTAxMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhZTA4MDgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
 background: -moz-linear-gradient(top, #c41010 0%, #ae0808 100%); /* FF3.6+ */
@@ -834,6 +835,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
 .clsStoreShow {display:block !important;}
 .price-yaun-left span {color:red; padding:0 5px 0 0;}
 .currency {width: 2%; margin-top: 2.8%; text-align: left;}
+.currency_update {text-align: right!important;padding-right: 5%; margin-top:1%;}
+.input_outter_div {
+    width: 58%;
+    float: left;
+}
+.input_mostoutter_div {
+float:left;padding-top:15px;
+}
+.talileft {
+text-align:left; padding-left:10px;
+}
 .name { float:left; width:33%; text-align:left; margin-top:10px;}
 .address {float:left; width:38%;  text-align:left; margin-top:10px;}
 .firstClass {background:none!important; border:none!important; box-shadow:none!important;}
@@ -912,7 +924,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
     margin-left: 70%; 
     text-align: center; 
     width: 22.4%; 
-    background-color: #bc1616; 
+    background-color: #c44347; 
     border-radius: 4px; 
     margin-bottom: 15px; 
     margin-top: 20px;
@@ -921,7 +933,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
     padding:10px 4px;
     font-size:15px;
      cursor:pointer;
+     border:solid 1px #6b2427;
 }
+    .btn_cok:hover {
+        background-color: #e14d51; 
+        border:solid 1px #7b2a2c;
+            }
 .cus_clr
 {
     clear: both;
@@ -1002,15 +1019,33 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .btn_cscn
 {
-    width: 30%; height: 45px; color: #fff; background-color: #bc1616; float: left; margin-left: 1%; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;cursor:pointer;
+    width: 30%; height: 45px; color: #fff; background-color: #c44347; float: left; margin-left: 1%; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;cursor:pointer;
+
+border:solid 1px #6b2427;
 }
+    .btn_cscn:hover {
+        background-color: #e14d51; 
+        border:solid 1px #7b2a2c;
+}
+
 .btn_nscn
 {
-    width: 30%; height: 45px; color: #fff; background-color: #bc1616; margin-left: 3%; float: left; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;cursor:pointer;
+    width: 30%; height: 45px; color: #fff; background-color: #c44347; margin-left: 3%; float: left; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;cursor:pointer;
+border:solid 1px #6b2427;
 }
+    .btn_nscn:hover {
+        background-color: #e14d51; 
+        border:solid 1px #7b2a2c;
+}
+
 .btn_exge
 {
-    width: 80%; background-color: #bc1616; font-size: 15px; color: #fff; margin-top: 5px;margin-bottom:5px; font-family: Arial; border-radius: 4px;text-align:center;text-shadow: 0 0 0 #f3f3f3;padding: 10px 4px;cursor:pointer;
+    width: 80%; background-color: #c44347; font-size: 15px; color: #fff; margin-top: 5px;margin-bottom:5px; font-family: Arial; border-radius: 4px;text-align:center;text-shadow: 0 0 0 #f3f3f3;padding: 10px 4px;cursor:pointer;
+border:solid 1px #6b2427;
+}
+    .btn_exge:hover {
+        background-color: #e14d51; 
+        border:solid 1px #7b2a2c;
 }
 .div_pnt
 {
@@ -1038,7 +1073,7 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .div_cuspto
 {
-    background-color: #fff; margin-top: 70px;
+    background-color: #fff; 
 }
 .cuspto_lft
 {
@@ -1141,13 +1176,18 @@ h1
  
     text-align: center; 
     width: 84%; 
-    background-color: #bc1616; 
+    background-color: #c44347; 
     border-radius: 4px; 
        margin-top: 4px;
     color:#fff;
     text-shadow: 0 0 0 #f3f3f3;
  
     font-size:15px;
+border:solid 1px #6b2427;
+}
+    .btn_cus_phone:hover {
+        background-color: #e14d51; 
+        border:solid 1px #7b2a2c;
 }
 .cus_pho_lft
 {
@@ -1212,17 +1252,17 @@ h1
 }
 .cus_mgn
 {
-    padding-top:5px;
+    padding-top:7px;
 }
 
-/******************************************************************************************/
+/****************************************************************************************************/
 
 /*************************************** Membetship Detail *****************************************/
 
 .mbr_dtl
 {
      border-bottom: 1px solid #BDBDBD;
-     width:25%;float:left;
+     width:33.33%;float:left;
 }
 .loadMember
 {
@@ -1245,7 +1285,7 @@ h1
 /**************************************************************************************************************/
 
 /********************************** Save Password from My stored **********************************************************/
-.udte_pwd
+/*.udte_pwd
 {
      border: 1px solid #000!important;
       border: 1px solid #000!important;
@@ -1255,7 +1295,7 @@ h1
       padding:2px 13px!important;
       width:auto!important;
       float:right!important; margin-top:10px!important; margin-bottom:10px!important; line-height:none!important; min-height:inherit!important; font-family:sans-serif!important; font-weight:normal!important; font-size:16px!important; text-shadow:0px 0px #000!important;
-}
+}*/
 
 /**************************************************************************************************************/
 
@@ -1271,13 +1311,40 @@ h1
 }
 .Publish_udte_pwd
 {
-     border: 1px solid #000!important;
+     /*border: 1px solid #000!important;
       border: 1px solid #000!important;
       cursor: pointer;
       color:#fff!important;
       background-color: #c44347;
       padding:2px 13px!important;
       width:auto!important;
-      float:right!important; margin-top:10px!important; margin-bottom:10px!important; line-height:none!important; min-height:inherit!important; font-family:sans-serif!important; font-weight:normal!important; font-size:16px!important; text-shadow:0px 0px #000!important;
+      float:right!important; margin-top:10px!important; margin-bottom:10px!important; line-height:none!important; min-height:inherit!important; font-family:sans-serif!important; font-weight:normal!important; font-size:16px!important; text-shadow:0px 0px #000!important;*/
 
+}
+
+/* start custom css 29-8-2014*/
+
+.wmt-save-btn {
+        float: right;
+        width: 10%;
+    }
+.mwt-mar {
+    margin: 0;
+}
+/* end custom css 29-8-2014*/
+
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1280px) {
+    .input_outter_div {
+    width: 60%;
+    float: left;
+}
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px) {
+    .wmt-save-btn {
+    float: right;
+    width: 100%;
+}
 }
