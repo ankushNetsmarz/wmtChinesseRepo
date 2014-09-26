@@ -16,31 +16,6 @@
     <script src="js/jquery.mobile.dynamic.popup.js"></script>
     <script src="js/responsiveslides.min.js"></script>
     <script src="cordova.js"></script>
-    <style>
-        
-        * {
-            
-            -webkit-touch-callout: none;
-            
-            -webkit-user-select: none;
-            
-        }
-    
-    input,
-    
-    textarea {
-        
-        -webkit-touch-callout: auto;
-        
-        -webkit-user-select: auto;
-        
-    }
-    
-    transform: translate3d(0,0,0);
-    
-    -webkit-transform: translate3d(0,0,0);
-    
-        </style>
     <script>
 
         document.addEventListener("deviceready", onDeviceReady, false);
@@ -726,9 +701,11 @@
 
                             <span>扫描</span></a>
                         </li>
-                        <li class="active"><a href="javascript:;" class="Publish_screen">
-                            <img src="css/images/publish-icon-active.png" alt=""><br>
-                            <span>发布</span></a>
+                        <li id="act-pub" class="active">
+                            <a href="javascript:;" class="Publish_screen">
+                                <img src="css/images/publish-icon-active.png" alt=""><br>
+                                <span>发布</span>
+                            </a>
                         </li>
                         <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
                             <img src="css/images/member-icon.png" alt=""><br>
@@ -739,9 +716,11 @@
 
                             <span>信息</span></a>
                         </li>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
-                            <img src="css/images/store-icon.png" alt=""><br>
-                            <span>本店</span></a>
+                        <li id="act-sto">
+                            <a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                                <img src="css/images/store-icon.png" alt=""><br>
+                                <span>本店</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -795,7 +774,7 @@
                     </div>
                     <div class="clr"></div>
                     <div class="button">
-                        <input type="submit" value="发布" />
+                        <input type="submit" value="发布" id="sto-submit" />
                         <div class="clr"></div>
                     </div>
                 </form>
@@ -976,7 +955,7 @@
                         </div>
                         <div class="clr"></div>
                         <div class="button">
-                            <input type="submit" value="发布" data-theme="a">
+                            <input type="submit" value="发布" data-theme="a" id="dis-submit">
                             <div class="clr"></div>
                         </div>
                     </form>
@@ -1105,7 +1084,7 @@
                             </div>
                             <div class="clr"></div>
                             <div class="button">
-                                <input type="submit" value="发布" data-theme="a">
+                                <input type="submit" value="发布" data-theme="a" id="btn-promotion">
                                 <div class="clr"></div>
                             </div>
                         </div>
@@ -1211,7 +1190,7 @@
 
                             <div class="clr"></div>
                             <div class="button">
-                                <input type="submit" value="发布" data-theme="a">
+                                <input type="submit" value="发布" data-theme="a" id="gift-submit">
                                 <div class="clr"></div>
                             </div>
                         </div>
@@ -1980,7 +1959,7 @@
         <!--<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"style="background-color:#bc1616;" >关闭</a>-->
         <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
             <div>欢迎光临WMT，此内容将在以后更新。现在请致电您的客户服务有关的测试协议！</div>
-            <center><a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok"  href="#" >关闭</a></center>
+            <center><a data-rel="back" data-theme="b" class="ui-btn-inline ui-btn ui-input-btn ui-btn-a ui-corner-all ui-shadow" href="#">关闭</a></center>
         </div>
 
     </div>
@@ -2112,11 +2091,11 @@
     <!---- Select Sort Parameter ----->
     <div id="SortParameter" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
         <!-- <div style="width:200px;background-color:#ff0000;color:#fff"> <h3>Sort With..</h3></div>-->
-        <div role="main" class="ui-content" style="text-align: left; max-height: 600px; overflow-x: hidden;">
+        <div role="main" class="ui-content" style="text-align: left; max-height: 600px; width:250px; overflow-x: hidden;">
             <div class="sort_By">排序方式 </div>
             <div id="Sort_name" class="sorttext">名称 </div>
             <div id="Sort_TotalPoint" class="sorttext">总积分</div>
-            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" href="#" style="background-color: #bc1616;">关闭</a>
+            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" href="#" style="background-color: #bc1616; width: 213px;">关闭</a>
         </div>
     </div>
     <!---- Enter Phone Number ----->

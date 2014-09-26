@@ -47,12 +47,28 @@ var IndustriesIds = "";
     $(document).on('submit', '#frmSaveStoreChanges', function () {
         Publishpinfor = "Store";
         $('#publishinfotext').html('<h1>保存更改</h1>');
+
+        $('#act-pub').removeClass('active');
+        $('#act-sto').addClass('active');
+        var pubsrc = $('#act-pub').find('img').attr('src').replace('-active.png', '.png')
+        var stosrc = $('#act-sto').find('img').attr('src').replace('.png', '-active.png')
+
+        $('#act-pub').find('img').attr('src', pubsrc)
+        $('#act-sto').find('img').attr('src', stosrc)
         $.mobile.navigate('#dvPublishPin');
     });
 
     /* Update Store industries */
     $(document).on('submit', '#frmUpdateIndustryChanges', function () {
         Publishpinfor = "Industries";
+
+        $('#act-pub').removeClass('active');
+        $('#act-sto').addClass('active');
+        var pubsrc = $('#act-pub').find('img').attr('src').replace('-active.png', '.png')
+        var stosrc = $('#act-sto').find('img').attr('src').replace('.png', '-active.png')
+
+        $('#act-pub').find('img').attr('src', pubsrc)
+        $('#act-sto').find('img').attr('src', stosrc)
         $('#publishinfotext').html('<h1>保存更改</h1>');
         $.mobile.navigate('#dvPublishPin');
     });
@@ -124,6 +140,14 @@ var IndustriesIds = "";
         if (objlocalStorage.Publish_Pin != null && objlocalStorage.Publish_Pin != undefined && objlocalStorage.Publish_Pin != "") {
             Publishpinfor = "Password";
             $('#publishinfotext').html('<h1>更改密码</h1>');
+
+            $('#act-pub').removeClass('active');
+            $('#act-sto').addClass('active');
+            var pubsrc = $('#act-pub').find('img').attr('src').replace('-active.png', '.png')
+            var stosrc = $('#act-sto').find('img').attr('src').replace('.png', '-active.png')
+
+            $('#act-pub').find('img').attr('src', pubsrc)
+            $('#act-sto').find('img').attr('src', stosrc)
             $.mobile.navigate('#dvPublishPin');
         }
         else {
@@ -240,6 +264,14 @@ $(document).on("click", ".Publish_udte_pwd", function () {
     if (objlocalStorage.Publish_Pin != null && objlocalStorage.Publish_Pin != undefined && objlocalStorage.Publish_Pin != "") {
         Publishpinfor = "PublishPassword";
         $('#publishinfotext').html('<h1>更改密码</h1>');
+
+        $('#act-pub').removeClass('active');
+        $('#act-sto').addClass('active');
+        var pubsrc = $('#act-pub').find('img').attr('src').replace('-active.png', '.png')
+        var stosrc = $('#act-sto').find('img').attr('src').replace('.png', '-active.png')
+
+        $('#act-pub').find('img').attr('src', pubsrc)
+        $('#act-sto').find('img').attr('src', stosrc)
         $.mobile.navigate('#dvPublishPin');
     }
     else {

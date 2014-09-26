@@ -46,6 +46,7 @@ public final class R {
         public static final int screen=0x7f020006;
         public static final int share_via_barcode=0x7f020007;
         public static final int shopper_icon=0x7f020008;
+        public static final int splash=0x7f020009;
     }
     public static final class id {
         public static final int back_button=0x7f090019;

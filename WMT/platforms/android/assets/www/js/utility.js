@@ -9,7 +9,13 @@ $('.clsback').on('click', function () {
     window.history.back();
     $('img.clsImage').attr('src', 'css/images/camra.jpg'); localStorage.removeItem("imageData");
     $('img.clrImages').attr('src', 'css/images/camra.jpg'); localStorage.removeItem("imageData");
-
+    if ($(this).parent().parent().hasClass('$back')) {   
+        $.fn.getPublishedInfo();
+        if ($(this).parent().parent().hasClass('$back')) {
+            $.fn.getPublishedInfo();
+            $(this).parent().parent().removeClass('$back');
+        }
+    }
 });
 
 $("#dvImageUpload").enhanceWithin().popup();
