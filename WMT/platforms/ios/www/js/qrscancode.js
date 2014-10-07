@@ -308,7 +308,7 @@ $('#submitmemberid').click(function () {
                            WMT.jqXHR(ajaxcallobj, function (response) {
                                      if (response != undefined && response != null) {
                                      $('#abl_pnt').html(response[0].wmtAvailablePoints);
-                                     $('#str_pnt').html(response[0].storePoints);
+                                     $('#str_pnt').html(parseInt(response[0].wmtTotalPoint)-parseInt(response[0].wmtAvailablePoints));
                                      $('#wmt_pnt').html(response[0].wmtTotalPoint);
                                      $('#Membernumber').html(response[0].memberPhone1);
                                      $('#member_id').val('')
@@ -336,7 +336,7 @@ function GetPoints(x) {
     WMT.jqXHR(ajaxcallobj, function (response) {
               if (response != undefined && response != null) {
               $('#abl_pnt').html(response[0].wmtAvailablePoints);
-              $('#str_pnt').html(response[0].storePoints);
+              $('#str_pnt').html(parseInt(response[0].wmtTotalPoint)-parseInt(response[0].wmtAvailablePoints));
               $('#wmt_pnt').html(response[0].wmtTotalPoint);
               
               }
