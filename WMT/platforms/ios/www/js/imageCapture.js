@@ -121,7 +121,7 @@ function GetPoints(x) {
               //            $('#wmt_pnt').html(response[0].wmtPoints);
               
               $('#abl_pnt').html(response[0].wmtAvailablePoints);
-              $('#str_pnt').html(response[0].storePoints);
+              $('#str_pnt').html(parseInt(response[0].wmtTotalPoint)-parseInt(response[0].wmtAvailablePoints));
               $('#wmt_pnt').html(response[0].wmtTotalPoint);
               
               }
