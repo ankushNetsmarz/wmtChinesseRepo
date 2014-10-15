@@ -1339,6 +1339,18 @@ border:solid 1px #6b2427;
 .mwt-mar {
     margin: 0;
 }
+
+
+.member_font{
+     font-size: 12px;
+     text-align:left;
+     padding: 2px;
+}
+
+.member-manage_height {
+height:70px ;
+}
+
 /* end custom css 29-8-2014*/
 
 

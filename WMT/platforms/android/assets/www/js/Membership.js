@@ -56,15 +56,10 @@ var pageid = 1;
                 $.mobile.navigate("#dvMemberDetail");
             }
             else {
-           
                   $.dynamicSuccess_popup(' <p>详细信息不可用</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">确定</a>');
             
             }
         });
-
-    
-
-
     })
 
 /********************************************************************************************/
@@ -84,6 +79,7 @@ var pageid = 1;
 
     })
 
+
 /*********************************************************************************************/
 
 
@@ -99,24 +95,22 @@ var pageid = 1;
             },
             dataType: 'json'
         }
-
         WMT.jqXHR(ajaxcallobj, function (response) {
-         
             var memberhtml = '';
             if ((response[1].result.length != 0)) {
                 if (response != undefined && response != null) {
                     for (var i = 0; i < response[1].result.length; i++) {
                         memberID = response[1].result[i].memberID == "" ? '0' : response[1].result[i].memberID;
-                        memberhtml += ' <div class="member-manage"> <div class="wapper-wrap">'
-                        memberhtml += '<div  member_id=' + memberID + ' class="mamber-image avtar txtmemberid" >'
-                        memberhtml += ' <img height="80px" width="90px" src="' + response[1].result[i].memberPicturePath + '" alt=""> </div>'
+                        memberhtml += ' <div class="member-manage member-manage_height"> <div class="wapper-wrap">'
+                        memberhtml += '<div  member_id=' + memberID + ' class="mamber-image avtar txtmemberid" style="margin-right:5px;height:50px;width:50px;" >'
+                        memberhtml += ' <img height="45px" width="40px" src="' + response[1].result[i].memberPicturePath + '" alt=""> </div>'
                         memberhtml += '<div class="member-right">'
-                        memberhtml += '<p onclick="$.mobile.navigate("#dvMemberDetail");">名称: ' + response[1].result[i].memberFullName + '</p>'
+                        memberhtml += '<p style="height:6px;" onclick="$.mobile.navigate("#dvMemberDetail");">名称: ' + response[1].result[i].memberFullName + '</p>'
                         memberhtml += ' <div class="memb-total">'
-                        var wmtpoint = response[1].result[i].wmtTotalPoint.substring(0, 2) + "..";
-                        var  Availablepoint = response[1].result[i].wmtAvailablePoints.substring(0,2)+ "..";
-                        memberhtml += ' <div class="total">总数: <span class="total_point">' + wmtpoint + '</span></div>'
-                        memberhtml += ' <div class="total">可用: <span>' + Availablepoint + '</span ></div></div></div></div></div>'
+                        var wmtpoint = response[1].result[i].wmtTotalPoint;
+                        var  Availablepoint = response[1].result[i].wmtAvailablePoints;
+                        memberhtml += ' <div class="total member_font">总数: <span class="total_point">' + wmtpoint + '</span></div>'
+                        memberhtml += ' <div class="total member_font">可用: <span>' + Availablepoint + '</span ></div></div></div></div></div>'
                     }
                     memberhtml += '<div class="loadMember" pageid="' + response[0].page_id + '"> 更多的会员... </div>'
                     $('.Application_members').html(memberhtml);
@@ -166,7 +160,7 @@ var pageid = 1;
             if (response.length > 0) {
             
                 var url = response[0].employeeAnalysis;
-                 navigator.app.loadUrl(url);
+                  navigator.app.loadUrl(url);
             }
 
         });
